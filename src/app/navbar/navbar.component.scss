@@ -1,0 +1,41 @@
+$navbar-color: #324233;
+$navbar-item-color: #ffd417;
+$navbar-hover-color: #d19209;
+
+.nav{
+    background-color: $navbar-color;
+    height: 80px;
+    text-align: center;
+}
+
+.nav-items{
+    position: relative;
+    right: 100px;
+    display: inline-block;
+    /* width: 50%; */
+    width: 80%;
+    margin: 0;
+    padding: 20px;
+    list-style: none;
+}
+
+.nav-item{
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+    display: inline-block;
+    margin-right: 80px;
+}
+
+.nav-item-link{
+    color : $navbar-item-color;
+    text-decoration: none;
+    margin-right: 30px;
+}
+
+.nav-item-link:hover,
+.nav-item-link.router-link-active{
+    color: $navbar-hover-color;
+    cursor: pointer;
+}
