@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Product } from '../../models/product.model';
+import { Product } from '../../../models/product.model';
 
 @Component({
   selector: 'product-detail',
@@ -10,5 +10,12 @@ import { Product } from '../../models/product.model';
   styleUrl: './product-detail.component.scss'
 })
 export class ProductDetailComponent {
-  @Input() product: Product | undefined;
+  @Input() name: string | undefined = "";
+  @Input() price: number | undefined = 0;
+  @Input() rating: number | undefined = 0;
+
+  convertProductRatingToArray(): Array<number> {
+    return Array(this.rating);
+  }
+
 }

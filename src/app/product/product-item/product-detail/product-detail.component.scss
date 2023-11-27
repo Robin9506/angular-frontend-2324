@@ -1,0 +1,26 @@
+.product-detail{
+    bottom: 0;
+    height: 40%;
+    width: 100%;
+    background-color: red;
+    position: absolute;
+}
+
+.product-name{
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.product-rating{
+    background-color: green;
+    width: 100%;
+}
+
+.product-rating svg{
+    display: inline-block;
+    width: 10%;
+    height: 10%;
+}
