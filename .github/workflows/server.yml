@@ -16,7 +16,9 @@ jobs:
       needs: checkout-frontend
       steps:
         - name: Build frontend
-          run: ng build
+          run: | 
+            npm install
+            ng build
 
   move-frontend:
       runs-on: frontend
