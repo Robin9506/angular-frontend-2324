@@ -12,6 +12,7 @@ import { Product } from '../../../models/product.model';
 export class ProductDetailComponent {
   @Input() name: string | undefined = "";
   @Input() price: number | undefined = 0;
+  @Input() platform: string | undefined = "";
   @Input() rating: number | undefined = 0;
 
   convertProductRatingToArray(): Array<number> {
