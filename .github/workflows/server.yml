@@ -10,10 +10,6 @@ jobs:
     steps:
       - name: Get server repository
         uses: actions/checkout@v4
-      - name: Update node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18.13
         
   build-frontend:
       runs-on: frontend
