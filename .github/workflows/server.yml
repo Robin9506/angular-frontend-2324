@@ -17,8 +17,8 @@ jobs:
       steps:
         - name: Build frontend
           run: npm install && ng build
-        - name: LS
-          run: ls
-        - name: Move frontend to folder
+        - name: Remove existing folder
+          run: rm -Rf /var/www/triplergames.com/html/dist
+        - name: Move updated frontend to folder
           run: mv dist /var/www/triplergames.com/html
 
