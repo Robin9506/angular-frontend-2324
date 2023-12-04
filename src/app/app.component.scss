@@ -1,3 +1,8 @@
+$global-color: #324233;
+$cta-color: #ffd417;
+$cta-hover-color: #d19209;
+
 .content{
-    height: 91vh;
+    // height: 100vh;
+    height: calc(100vh - 70px);
 }

@@ -1,10 +1,8 @@
-$navbar-color: #324233;
-$navbar-item-color: #ffd417;
-$navbar-hover-color: #d19209;
+@import "../app.component.scss";
 
 .nav{
-    background-color: $navbar-color;
-    height: 80px;
+    background-color: $global-color;
+    height: 65px;
     text-align: center;
 }
 
@@ -29,13 +27,13 @@ $navbar-hover-color: #d19209;
 }
 
 .nav-item-link{
-    color : $navbar-item-color;
+    color : $cta-color;
     text-decoration: none;
     margin-right: 30px;
 }
 
 .nav-item-link:hover,
 .nav-item-link.router-link-active{
-    color: $navbar-hover-color;
+    color: $cta-hover-color;
     cursor: pointer;
 }
