@@ -25,4 +25,4 @@ jobs:
       needs: build-frontend
       steps:
         - name: Move frontend to folder
-          run: mv dist\ /var/www/triplergames.com/html
+          run: mv /dist /var/www/triplergames.com/html
