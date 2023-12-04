@@ -5,12 +5,22 @@ on:
   workflow_dispatch:
   
 jobs:
-  checkout-server:
+  checkout-frontend:
     runs-on: frontend
     steps:
       - name: Get server repository
         uses: actions/checkout@v4
-      # - name: Remove old server code
-      #   run: rm -Rf /var/www/triplergames.com/html
-      - name: Move new code to destination
-        run: mv /var/www/triplergames.com/html
+        
+  build-frontend:
+      runs-on: frontend
+      needs: checkout-frontend
+      steps:
+        - name: Build frontend
+          run: ng build
+
+  move-frontend:
+      runs-on: frontend
+      needs: build-frontend
+      steps:
+        - name: Move frontend to folder
+          run: mv dist\ /var/www/triplergames.com/html
