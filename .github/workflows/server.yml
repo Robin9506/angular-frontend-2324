@@ -16,14 +16,7 @@ jobs:
       needs: checkout-frontend
       steps:
         - name: Build frontend
-          run: | 
-            npm install
-            ng build
-            ls -a
-
-  move-frontend:
-      runs-on: frontend
-      needs: build-frontend
-      steps:
+          run: npm install && ng build
         - name: Move frontend to folder
           run: mv /dist /var/www/triplergames.com/html
+
