@@ -1,0 +1,24 @@
+name: Server Frontend Deployment - Triplergames.com
+on:
+  push:
+    branches: [ "production" ]
+  workflow_dispatch:
+  
+jobs:
+  checkout-frontend:
+    runs-on: frontend
+    steps:
+      - name: Get server repository
+        uses: actions/checkout@v4
+        
+  build-frontend:
+      runs-on: frontend
+      needs: checkout-frontend
+      steps:
+        - name: Build frontend
+          run: npm install && ng build
+        - name: Remove existing folder
+          run: rm -Rf /var/www/triplergames.com/html/dist
+        - name: Move updated frontend to folder
+          run: mv dist /var/www/triplergames.com/html
+
