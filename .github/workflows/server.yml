@@ -2,18 +2,14 @@ name: Server Frontend Deployment - Triplergames.com
 on:
   push:
     branches: [ "production" ]
-  pull_request:
-    branches: [ "production" ]
   workflow_dispatch:
   
 jobs:
   checkout-server:
-    runs-on: rrr
+    runs-on: frontend
     steps:
       - name: Get server repository
         uses: actions/checkout@v4
-        with:
-          sparse-checkout: dist
       # - name: Remove old server code
       #   run: rm -Rf /var/www/triplergames.com/html
       - name: Move new code to destination
