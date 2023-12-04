@@ -2,6 +2,8 @@ name: Server Frontend Deployment - Triplergames.com
 on:
   push:
     branches: [ "production" ]
+  pull_request:
+    branches: [ "production" ]
   workflow_dispatch:
   
 jobs:
