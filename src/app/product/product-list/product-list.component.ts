@@ -22,13 +22,13 @@ export class ProductListComponent {
     new Product(3, "Xenoblade Chronicles 2", 49.99, "De toekomst again!", "Monolith Soft", "../../../assets/smbw.jpg", 4, "Switch")
   ]
 
-  productList: Product[] =[];
+  // products: Product[] =[];
   isRetrievingProducts: boolean = false;
 
   constructor(private productService: ProductService) { }
   
   ngOnInit(): void {
-    this.getProducts();
+    // this.getProducts();
   }
   
   getProducts(){
@@ -45,5 +45,9 @@ export class ProductListComponent {
 
       }
     });
+  }
+
+  goToSingleProduct(product: Product){
+    console.log(product);
   }
 }

@@ -11,4 +11,6 @@ import { ProductThumbnailComponent } from './product-thumbnail/product-thumbnail
 })
 export class ProductItemComponent {
   @Input() product: Product | undefined;
+
+  
 }

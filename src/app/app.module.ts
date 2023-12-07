@@ -23,8 +23,9 @@ export function tokenGetter() {
 
     NavbarComponent,
     ProductModule
+
   ],
-  exports: [NavbarComponent, ProductModule],
+  exports: [ProductModule],
 
   providers: [HttpService, ProductService],
   bootstrap: [AppComponent]

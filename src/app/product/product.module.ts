@@ -6,16 +6,14 @@ import { ProductItemComponent } from './product-item/product-item.component';
 import { ProductDetailComponent } from './product-item/product-detail/product-detail.component';
 import { ProductThumbnailComponent } from './product-item/product-thumbnail/product-thumbnail.component';
 
-
-
-
 @NgModule({
   declarations: [
     ProductComponent,
     ProductListComponent,
     ProductItemComponent,
     ProductDetailComponent,
-    ProductThumbnailComponent
+    ProductThumbnailComponent,
+    
   ],
   imports: [
     CommonModule,
