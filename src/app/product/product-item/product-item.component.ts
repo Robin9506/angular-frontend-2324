@@ -6,8 +6,6 @@ import { ProductThumbnailComponent } from './product-thumbnail/product-thumbnail
 
 @Component({
   selector: 'product-item',
-  standalone: true,
-  imports: [CommonModule, ProductDetailComponent, ProductThumbnailComponent],
   templateUrl: './product-item.component.html',
   styleUrl: './product-item.component.scss'
 })

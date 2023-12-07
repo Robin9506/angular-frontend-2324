@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Product } from '../../models/product.model';
 import { ProductItemComponent } from '../product-item/product-item.component';
+import { ProductService } from '../../services/product.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'product-list',
-  standalone: true,
-  imports: [CommonModule, ProductItemComponent],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss'
 })
@@ -21,4 +21,29 @@ export class ProductListComponent {
     new Product(3, "Xenoblade Chronicles 2", 49.99, "De toekomst again!", "Monolith Soft", "../../../assets/smbw.jpg", 4, "Switch"),
     new Product(3, "Xenoblade Chronicles 2", 49.99, "De toekomst again!", "Monolith Soft", "../../../assets/smbw.jpg", 4, "Switch")
   ]
+
+  productList: Product[] =[];
+  isRetrievingProducts: boolean = false;
+
+  constructor(private productService: ProductService) { }
+  
+  ngOnInit(): void {
+    this.getProducts();
+  }
+  
+  getProducts(){
+    this.isRetrievingProducts = true;
+    this.productService.getProducts().subscribe({
+      next: (products: Product[]) => {
+        console.log(products);
+        this.products = products;
+
+      },
+      complete: () =>{
+        console.log(this.products);
+        this.isRetrievingProducts = false;
+
+      }
+    });
+  }
 }

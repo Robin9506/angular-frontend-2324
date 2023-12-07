@@ -4,8 +4,6 @@ import { Product } from '../../../models/product.model';
 
 @Component({
   selector: 'product-detail',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.scss'
 })
