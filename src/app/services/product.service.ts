@@ -22,7 +22,7 @@ export class ProductService {
         this.httpService.makePostRequest("/product", product).subscribe();
     }
 
-    getSingleProductFromServer(id: string){
+    getSingleProduct(id: string){
     return this.httpService.makeGetRequest("/product/" + id);
     }         
 

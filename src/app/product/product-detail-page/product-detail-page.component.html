@@ -1,1 +1,61 @@
-<p>product-detail-page works!</p>
+<div class="single-product-wrapper">
+    <div class="breadcrumbs">
+        <ul class="breadcrumb">
+            <li class="clickable">Home</li>
+            <li class="clickable">Products</li>
+            <li >{{product?.name}}</li>
+          </ul>
+    </div>
+    <div class="single-product-main-section display-inline-block">
+        <div class="single-product-image display-inline-block">
+            <img src="{{product?.imageLink}}" alt="">
+        </div>
+        <div class="single-product-details  display-inline-block">
+            <div class="single-product-title">
+                <p>{{product?.name}}</p>
+            </div>
+            <div class="single-product-description">
+                <p>{{product?.description}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="checkout-wrapper display-inline-block">
+        <div class="checkout-box ">
+            <div class="checkout-box-topbar">
+                <p>Great Choice!</p>
+            </div>
+            <div class="checkout-box-details">
+                <div class="checkout-promo">
+                    <p>Offered by Triple R Games</p>
+                    <p>Rating</p>
+                </div>
+                <div class="single-product-price">
+                    <p>{{product?.price | currency:'EUR'}}</p>
+                </div>
+                <div class="add-to-cart-button">
+                    <p>Buy Now</p>
+                </div>
+                <div class="add-to-cart-button" (click)="addSingleProductToCart()" style="margin-top: 6.5%;">
+                    <p>Add To Cart</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-specifications-wrapper">
+        <div class="product-specifications">
+            <div class="product-specification-header">
+                <p>Specifications</p>
+            </div>
+            <dl class="product-specification-details"> 
+                <dt>Name</dt>
+                <dd>{{product?.name}}</dd>
+                <dt>Company</dt>
+                <dd>{{product?.company}}</dd>
+                <dt>Platform</dt>
+                <dd>{{product?.platform}}</dd>
+                <dt>Rating</dt>
+                <dd>{{product?.rating}}</dd>
+            </dl>
+        </div>
+    </div>
+</div>

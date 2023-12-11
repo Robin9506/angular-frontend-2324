@@ -1,8 +1,13 @@
-$global-color: #324233;
-$cta-color: #ffd417;
-$cta-hover-color: #d19209;
+$global-color: #21295C;
+$background-color: #1B3B6F;
+$box-color: #1b71c2;
+$cta-color: #F5D547;
+$cta-hover-color: #ECA22C;
+
+
 
 .content{
     // height: 100vh;
-    height: calc(100vh - 70px);
+    min-height: calc(100vh - 70px);
+    background-color: $background-color;
 }
