@@ -23,22 +23,15 @@ export class LoginComponent {
 
     const credentials: Credentials = new Credentials(this.username, this.password)
 
-    this.authService.loginUser(credentials).pipe(delay(750))
+    this.authService.sendCredentials(credentials).pipe(delay(750))
     .subscribe({
       next: (token) => {
-        console.log(token)
         if(token !== null){
-          this.authService.isLoggedIn = true;
           localStorage.setItem('token', token.tokenValue);
-        }
-      },
-      complete: () =>{
-        if(this.authService.isLoggedIn){
-          this.router.navigate(["home"]);
+          this.authService.loginUser();
         }
       }
-    }
-    );
+    });
   }
 
   navigateToRegister(){

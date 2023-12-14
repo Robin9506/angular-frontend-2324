@@ -6,7 +6,8 @@
         <li class="nav-item" > 
             <a class="nav-item-link active" (click)="goToHomePage()">Home</a>
             <a class="nav-item-link" (click)="goToProductPage()">Products</a>
-            <a class="nav-item-link" (click)="goToLoginPage()">Login</a>
+            <a class="nav-item-link" (click)="goToLoginPage()" *ngIf="!isLoggedIn">Login</a>
+            <a class="nav-item-link" (click)="logout()" *ngIf="isLoggedIn">Logout</a>
         </li>
     </ul>
     <div class="cart-button" (click)="navigateToCheckout()">
