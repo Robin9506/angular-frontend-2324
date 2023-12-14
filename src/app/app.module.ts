@@ -19,6 +19,7 @@ export function tokenGetter() {
     FormsModule,
     HttpClientModule,
     CommonModule,
+
     ProductModule,
     CheckoutModule,
     RunningModule

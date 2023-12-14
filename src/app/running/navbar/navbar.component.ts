@@ -27,5 +27,6 @@ export class NavbarComponent {
 
   goToHomePage(){this.router.navigate(['home']);}
   goToProductPage(){this.router.navigate(['product']);}
-  navigateToCart(){this.router.navigate(['checkout']);}
+  goToLoginPage(){this.router.navigate(['login']);}
+  navigateToCheckout(){this.router.navigate(['checkout']);}
 }
