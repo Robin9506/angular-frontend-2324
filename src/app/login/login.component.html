@@ -1,1 +1,22 @@
-<p>login works!</p>
+<div class="page-wrapper">
+    <div class="login-box">
+        <form #loginForm="ngForm">
+            <div class="login-fields">
+                <div class="input-field">
+                    <label class="label">Username</label>
+                    <input class="edit-input" maxlength="24" placeholder="Username" type="name" name="username" ngModel>
+                </div>
+                <div class="input-field">
+                    <label class="label">Password</label>
+                    <input class="edit-input" placeholder="••••••••••••" type="password" name="password" ngModel>
+                </div>
+                <div class="submit-button">
+                    <button type="submit">Login</button>
+                </div>
+                <div class="register-button">
+                    <p>Sign up here!</p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
