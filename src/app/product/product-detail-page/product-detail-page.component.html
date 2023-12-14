@@ -1,11 +1,5 @@
 <div class="single-product-wrapper">
-    <div class="breadcrumbs">
-        <ul class="breadcrumb">
-            <li class="clickable">Home</li>
-            <li class="clickable">Products</li>
-            <li >{{product?.name}}</li>
-          </ul>
-    </div>
+    <breadcrumbs-component [endLocation]="product?.name"></breadcrumbs-component>
     <div class="single-product-main-section display-inline-block">
         <div class="single-product-image display-inline-block">
             <img src="{{product?.imageLink}}" alt="">
@@ -19,27 +13,8 @@
             </div>
         </div>
     </div>
-    <div class="checkout-wrapper display-inline-block">
-        <div class="checkout-box ">
-            <div class="checkout-box-topbar">
-                <p>Great Choice!</p>
-            </div>
-            <div class="checkout-box-details">
-                <div class="checkout-promo">
-                    <p>Offered by Triple R Games</p>
-                    <p>Rating</p>
-                </div>
-                <div class="single-product-price">
-                    <p>{{product?.price | currency:'EUR'}}</p>
-                </div>
-                <div class="add-to-cart-button">
-                    <p>Buy Now</p>
-                </div>
-                <div class="add-to-cart-button" (click)="addSingleProductToCart()" style="margin-top: 6.5%;">
-                    <p>Add To Cart</p>
-                </div>
-            </div>
-        </div>
+    <div class="buy-box-wrapper display-inline-block">
+        <buy-box [product]="product" (addToCart)="addSingleProductToCart($event)"></buy-box>
     </div>
     <div class="product-specifications-wrapper">
         <div class="product-specifications">

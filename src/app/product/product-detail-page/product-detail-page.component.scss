@@ -11,19 +11,23 @@
 .single-product-main-section{
     width: 75%;
     height: 52.5%;
+    min-height: 252px;
     margin-top: 1%;
     background-color: orange;
 }
 
 .single-product-image {
-    width: 18.5%;
-    height: 100%; 
-    
+    width: 15.5%;
+    height: 80%;   
+    // min-height: 252px;  
+    font-size:0;
+    line-height:0;
 }
 
-.single-product-image img{
+.single-product-image img{  
     width: 100%;
     height: 100%;
+
     
 }
 
@@ -46,14 +50,7 @@
     margin-top: 2%;
 }
 
-.single-product-price {
-    color: yellow;
-    font-weight: 600;
-    font-size: xx-large;
-    margin-top: 2%;
-}
-
-.checkout-wrapper{
+.buy-box-wrapper {
     width: 20%;
     height: 100%;
     margin-top: 1%;
@@ -61,65 +58,9 @@
     
 }
 
-.checkout-box {
-    width: 95%;
-    height: 50%;
-    background-color: $box-color;
-    box-shadow: 0 5px 10px $global-color;
-}
-
-.checkout-box-topbar{
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    flex-direction: column;
-
-    height: 7.5%;
-    background-color: $background-color;
-    color: $cta-color;
-
-    font-size: medium;
-    padding: 5%;
-    font-weight: bold;
-
-}
-
-.checkout-box-details{
-    height: 100%;
-    padding: 5%;
-}
-
-.checkout-promo{
-    color: white;
-    font-size: x-small;
-    font-weight: bolder;
-}
-
 .display-inline-block {
     display: inline-block;
     vertical-align: top;
-}
-
-.add-to-cart-button{
-    width: 100%;
-    height: 20%;
-    margin-top: 15%;
-
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    flex-direction: column;
-
-    color: black;
-    font-weight: bold;
-    font-size: large;
-    background-color: $cta-color;
-}
-
-.add-to-cart-button:hover{
-    transition: transform .5s;
-    background-color: $cta-hover-color;
-    cursor: pointer;
 }
 
 .product-specifications-wrapper{
@@ -154,31 +95,4 @@ dl {
   
   dd {
     grid-column-start: 2;
-  }
-
-.breadcrumbs{
-    width: 75%;
-}
-
-ul.breadcrumb {
-    padding: 10px 0;
-    color: $cta-color;
-    list-style: none;
-  }
-  
-  ul.breadcrumb li {
-    display: inline;
-    font-size: 16px;
-    font-weight: bold;
-  }
-
-  ul.breadcrumb li+li:before {
-    padding: 8px;
-    color: $box-color;
-    content: ">";
-  }
-
-  ul.breadcrumb li.clickable:hover {
-    color: $cta-hover-color;
-    cursor: pointer;
   }

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Product } from '../../models/product.model';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../services/product.service';
@@ -7,8 +6,6 @@ import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-product-detail-page',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './product-detail-page.component.html',
   styleUrl: './product-detail-page.component.scss'
 })
@@ -33,8 +30,8 @@ export class ProductDetailPageComponent {
     });
   }
 
-  addSingleProductToCart(){
-    if(this.product == null) return
-    this.cartService.addToCart(this.product);
+  addSingleProductToCart(requestedProduct: Product){
+    if(requestedProduct == null) return
+    this.cartService.addToCart(requestedProduct);
   }
 }

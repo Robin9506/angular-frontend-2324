@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product.model';
 import { HttpService } from './http.service';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -11,7 +12,7 @@ export class ProductService {
 
     constructor(private httpService: HttpService) { }
 
-    getProducts(){
+    getProducts(): Observable<Product[]>{
         this.httpService.makeGetRequest("/product").subscribe((products) =>{
         this.products = products;
         }) 
@@ -22,7 +23,7 @@ export class ProductService {
         this.httpService.makePostRequest("/product", product).subscribe();
     }
 
-    getSingleProduct(id: string){
+    getSingleProduct(id: string): Observable<Product>{
     return this.httpService.makeGetRequest("/product/" + id);
     }         
 

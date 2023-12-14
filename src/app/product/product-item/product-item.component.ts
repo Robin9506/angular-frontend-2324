@@ -1,8 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Product } from '../../models/product.model';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { ProductThumbnailComponent } from './product-thumbnail/product-thumbnail.component';
 
 @Component({
   selector: 'product-item',

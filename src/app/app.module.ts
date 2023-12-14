@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule, provideHttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { NavbarComponent } from './navbar/navbar.component';
-import { ProductModule } from './product/product.module';
-import { ProductComponent } from './product/product.component';
 import { CommonModule } from '@angular/common';
+
 import { HttpService } from './services/http.service';
 import { ProductService } from './services/product.service';
-
+import {ProductModule} from "./product/product.module";
+import {CheckoutModule} from "./checkout/checkout.module";
+import { RunningModule } from './running/running.module';
 
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -20,13 +19,11 @@ export function tokenGetter() {
     FormsModule,
     HttpClientModule,
     CommonModule,
-
-    NavbarComponent,
-    ProductModule
-
+    ProductModule,
+    CheckoutModule,
+    RunningModule
   ],
-  exports: [ProductModule],
-
+  exports: [RunningModule],
   providers: [HttpService, ProductService],
   bootstrap: [AppComponent]
 })
