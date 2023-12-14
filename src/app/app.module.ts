@@ -9,6 +9,8 @@ import { ProductService } from './services/product.service';
 import {ProductModule} from "./product/product.module";
 import {CheckoutModule} from "./checkout/checkout.module";
 import { RunningModule } from './running/running.module';
+import { AuthService } from './services/auth.service';
+import { AuthModule } from './login/auth.module';
 
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -22,10 +24,11 @@ export function tokenGetter() {
 
     ProductModule,
     CheckoutModule,
-    RunningModule
+    RunningModule,
+    AuthModule
   ],
   exports: [RunningModule],
-  providers: [HttpService, ProductService],
+  providers: [HttpService, ProductService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
