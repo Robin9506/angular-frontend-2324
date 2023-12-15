@@ -16,7 +16,7 @@ export class LoginComponent {
   private password: string = "";
 
 
-  constructor(private router: Router, private location: Location ,private authService: AuthService) { }
+  constructor(private router: Router, private location: Location, private authService: AuthService) { }
 
   login(ngForm: NgForm){
     this.username = ngForm.value.username;
