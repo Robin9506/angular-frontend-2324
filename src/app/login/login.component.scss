@@ -1,1 +1,59 @@
-@import "../app.component.scss"
+@import "../app.component.scss";
+
+.login-box{
+    width: 35%;
+    margin: auto;
+    padding: 5%;
+    height: 500px;
+    background-color: $global-color;
+}
+
+.welcome-text{
+    color: white;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.login-fields{
+    padding: 5%;
+}
+
+.input-field{
+    padding: 2.5%;
+}
+
+.label{
+    color: $cta-color;
+    font-size: large;
+    font-weight: bold;
+    display: block;
+}
+
+.edit-input{
+    -webkit-appearance: none;
+    outline: none;
+    margin-top: 2%;
+    padding: 2%;
+    width: 100%;
+    border: none;
+}
+
+.submit-button button{
+    margin-top: 12%;
+    padding: 2.5%;
+    width: 95%;
+    color: black;
+    font-weight: bold;
+    background-color: $cta-color;
+    border: none;
+}
+
+.submit-button button:hover{
+    background-color: $cta-hover-color;
+}
+.register-button{
+    cursor: pointer;
+    color: $cta-color;
+    font-weight: bold;
+    padding-top: 5%;
+}
