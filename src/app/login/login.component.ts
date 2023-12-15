@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { Credentials } from '../models/credentials.model';
 import { delay } from 'rxjs';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent {
   private password: string = "";
 
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private location: Location ,private authService: AuthService) { }
 
   login(ngForm: NgForm){
     this.username = ngForm.value.username;
@@ -29,6 +30,7 @@ export class LoginComponent {
         if(token !== null){
           localStorage.setItem('token', token.tokenValue);
           this.authService.loginUser();
+          this.location.back();
         }
       }
     });
