@@ -18,6 +18,7 @@ export class NavbarComponent {
   constructor(private router: Router, private cartService: CartService, private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.authService.isLoggedInAccountValid();
     this.amountInCart = this.cartService.getCurrentAmountInCart();
     this.cartService.getCartSubject().subscribe({
       next: (cartItems: Cart[]) => {
@@ -32,6 +33,7 @@ export class NavbarComponent {
   goToHomePage(){this.router.navigate(['home']);}
   goToProductPage(){this.router.navigate(['product']);}
   goToLoginPage(){this.router.navigate(['login']);}
-  logout(){this.authService.logoutUser();}
+  goToCustomerProfile(){this.router.navigate(['customer-portal']);}
+  logout(){this.authService.logoutUser(); this.router.navigate(['home']);}
   navigateToCheckout(){this.router.navigate(['checkout']);}
 }

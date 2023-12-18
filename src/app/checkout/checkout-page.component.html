@@ -1,3 +1,5 @@
 <div class="page-wrapper">
-  <cart-component></cart-component>
+  <cart-component [cart]="cartItems" (totalPrice)="setTotalPrice($event)"></cart-component>
+  <promo-code></promo-code>
+  {{totalPrice}}
 </div>

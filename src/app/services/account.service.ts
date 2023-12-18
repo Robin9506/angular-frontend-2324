@@ -22,8 +22,8 @@ export class AccountService{
         return this.httpService.makeGetRequest('/account');
     }
 
-    getAccountById(id: string){
-        return this.httpService.makeGetRequest('/account/' + id)
+    getOwnAccount(){
+        return this.httpService.makeGetRequest('/account/own');
     }
 
     deleteAccount(id: string){

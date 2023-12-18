@@ -11,6 +11,11 @@ import {CheckoutModule} from "./checkout/checkout.module";
 import { RunningModule } from './running/running.module';
 import { AuthService } from './services/auth.service';
 import { AuthModule } from './login/auth.module';
+import { RouterModule } from '@angular/router';
+import { CustomerPortalModule } from './customer-portal/customer-portal.module';
+import { AccountService } from './services/account.service';
+import { JwtModule } from '@auth0/angular-jwt';
+import { ProfileService } from './services/profile.service';
 
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -25,10 +30,18 @@ export function tokenGetter() {
     ProductModule,
     CheckoutModule,
     RunningModule,
-    AuthModule
+    AuthModule,
+    CustomerPortalModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ['localhost:8080'],
+      },
+    })
+    
   ],
-  exports: [RunningModule],
-  providers: [HttpService, ProductService, AuthService],
+  exports: [RunningModule, RouterModule],
+  providers: [HttpService, ProductService, AuthService, AccountService, ProfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
