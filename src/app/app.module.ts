@@ -16,6 +16,7 @@ import { CustomerPortalModule } from './customer-portal/customer-portal.module';
 import { AccountService } from './services/account.service';
 import { JwtModule } from '@auth0/angular-jwt';
 import { ProfileService } from './services/profile.service';
+import { OrderService } from './services/order.service';
 
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -41,7 +42,7 @@ export function tokenGetter() {
     
   ],
   exports: [RunningModule, RouterModule],
-  providers: [HttpService, ProductService, AuthService, AccountService, ProfileService],
+  providers: [HttpService, ProductService, AuthService, AccountService, ProfileService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

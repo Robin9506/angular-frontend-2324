@@ -17,11 +17,7 @@ export const routes: Routes = [
   { path: 'checkout', component: CheckoutPageComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
-  { path: 'customer-portal', component: CustomerPortalComponent, children: [
-    {path: '', component: ProfileComponent},
-    {path: 'profile', component: ProfileComponent}
-  ]},
-
+  { path: 'customer-portal', component: CustomerPortalComponent}
 ];
 
 @NgModule({
