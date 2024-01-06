@@ -1,0 +1,29 @@
+<div class="order-wrapper">
+    <div class="order-header">
+        <p>Orders</p>
+    </div>
+    <br>
+    <table class="order-table" *ngFor="let order of orders">
+        <tr>
+          <th>Order Id</th>
+        </tr>
+        <tr>
+          <td>{{order.id}}</td>
+        </tr>
+        <tr>
+            <th>Products</th>
+        </tr>
+        <tr *ngFor="let product of order.products">
+            <td>{{product.name}} - {{product.price}}</td>
+        </tr>
+        <tr>
+            <th>Total Price</th>
+          </tr>
+        <tr>
+            <td>{{getTotalPrice(order.products)}}</td>
+        </tr>
+     
+        <br>
+      </table>
+</div>
+

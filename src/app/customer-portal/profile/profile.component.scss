@@ -1,0 +1,41 @@
+
+.profile-specifications-wrapper{
+    width: 100%;
+    height: 100%;
+    color: white;
+    
+}
+
+.profile-specifications{
+    width: 50%;
+    margin-top: 2.5%;
+    margin: 0 auto;
+
+}
+
+.profile-specification-header{
+    font-size: x-large;
+    color: white;
+    
+}
+
+.profile-specification-details{
+    margin-top: 1%;
+    
+}
+
+dl {
+    display: grid;
+    grid-template-columns: 100px 100px;
+  }
+  
+  dt {
+    grid-column-start: 2;
+    padding: 10px;
+  }
+  
+  dd {
+    grid-column-start: 3;
+    padding: 10px;
+
+  }

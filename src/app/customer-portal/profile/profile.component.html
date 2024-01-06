@@ -1,4 +1,19 @@
-<p>{{account?.username}}</p>
-<p>{{account?.address}}</p>
-<p>{{account?.city}}</p>
-<p>{{account?.country}}</p>
+<div class="profile-specifications-wrapper">
+    <div class="profile-specifications">
+        <div class="profile-specification-header">
+            <p>Profile</p>
+        </div>
+        <dl class="profile-specification-details"> 
+            <dt>Email</dt>
+            <dd>{{account?.username}}</dd>
+            <dt>Address</dt>
+            <dd>{{account?.address}}</dd>
+            <dt>City</dt>
+            <dd>{{account?.city}}</dd>
+            <dt>Country</dt>
+            <dd>{{account?.country}}</dd>
+        </dl>
+    </div>
+</div>
+
+
