@@ -9,6 +9,7 @@ import { RegisterComponent } from './login/register/register.component';
 import { CustomerPortalComponent } from './customer-portal/customer-portal.component';
 import { AdminPortalComponent } from './admin-portal/admin-portal.component';
 import { AdminProductAddComponent } from './admin-portal/admin-product/admin-product-add/admin-product-add.component';
+import { AdminProductEditComponent } from './admin-portal/admin-product/admin-product-edit/admin-product-edit.component';
 
 export const routes: Routes = [
   { path: '', component: ProductsPageComponent},
@@ -19,14 +20,15 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'customer-portal', component: CustomerPortalComponent},
-  { path: 'admin-portal', component: AdminPortalComponent},
-  { path: 'product-add', component: AdminProductAddComponent},
+  { path: 'admin-portal', component: AdminPortalComponent, canActivate: []},
+  { path: 'product-add', component: AdminProductAddComponent, canActivate: []},
+  { path: 'product-edit/:id', component: AdminProductEditComponent, canActivate: []},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{
-    scrollPositionRestoration: 'enabled'
-  })],
-  exports: []
+  imports: 
+  [],
+  exports: [],
+  providers: []
 })
 export class AppRoutingModule { }

@@ -18,6 +18,8 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { ProfileService } from './services/profile.service';
 import { OrderService } from './services/order.service';
 import { AdminPortalModule } from './admin-portal/admin-portal.module';
+import { PromoService } from './services/promo.service';
+import { AppRoutingModule, routes } from './app.routes';
 
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -28,7 +30,6 @@ export function tokenGetter() {
     FormsModule,
     HttpClientModule,
     CommonModule,
-
     ProductModule,
     CheckoutModule,
     RunningModule,
@@ -40,11 +41,10 @@ export function tokenGetter() {
         tokenGetter: tokenGetter,
         allowedDomains: ['localhost:8080'],
       },
-    })
-    
+    })    
   ],
   exports: [RunningModule, RouterModule],
-  providers: [HttpService, ProductService, AuthService, AccountService, ProfileService, OrderService],
+  providers: [HttpService, ProductService, AuthService, AccountService, ProfileService, OrderService, PromoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

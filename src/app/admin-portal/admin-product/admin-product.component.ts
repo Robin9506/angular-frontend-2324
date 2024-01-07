@@ -29,6 +29,10 @@ export class AdminProductComponent {
     this.router.navigate(['product-add/']);
   }
 
+  navigateToEditProduct(productId: string){
+    this.router.navigate(['product-edit/' + productId]);
+  }
+
   deleteProduct(productId: string){
     this.productService.deleteProduct(productId).subscribe({
       complete: () => {

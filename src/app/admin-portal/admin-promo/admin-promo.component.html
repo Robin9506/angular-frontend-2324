@@ -1,0 +1,20 @@
+<div class="header-wrapper">
+    <div class="promo-header">Promos</div>
+    <div class="promo-header">Add-Promo</div>
+</div>
+<table class="promo-table">
+    <tr>
+      <th>Index</th>
+      <th>Code</th>
+      <th>Discount</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <tr *ngFor="let promo of this.promos; let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{promo.code}}</td>
+        <td>{{promo.discount}}</td>
+        <td><button>Edit</button></td>
+        <td><button (click)="deletePromo(promo.id.toString())">Delete</button></td>
+      </tr>
+  </table>

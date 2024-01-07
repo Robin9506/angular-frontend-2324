@@ -1,0 +1,119 @@
+@import "../../../app.component.scss";
+
+.edit-wrapper{
+    width: 100%;
+    display: flex;
+
+}
+
+.product{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    margin-left: 50px;
+    margin-top: 25px;
+}
+
+.product-details{
+    width: 75%;
+    margin-left: 24px;
+    margin-top: 12px;
+}
+
+.product-name{
+    font-size: x-large;
+    margin-top: 4px;
+}
+
+.product-details img{
+    width: 75%;
+    height: 75%;
+    max-height: 100%;
+}
+
+.product-company-platform{
+    font-size: large;
+    margin-bottom: 6px;
+    margin-left: 0.5px;
+
+}
+
+.product-description{
+    width: 100%;
+    margin-top: 64px;
+}
+
+.form-wrapper{
+
+    width: 40%;
+}
+
+.form-fields{
+    width: 100%;
+    height: 200%;
+
+}
+.editInput{
+    display: block;
+    width: 50%;
+    padding: 3px;
+    margin-top: 20px;
+    margin-bottom: 6px;
+    text-align: center;
+    margin: 0 auto;
+    
+    
+}
+
+.editInputDescription{
+    display: block;
+    width: 50%;
+    padding: 3px;
+    margin-top: 2px;
+    margin-bottom: 6px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.inputField{
+    text-align: center;
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+.label{
+    color: white;
+    margin-top: 50px;
+}
+
+.submitButton button{
+    display: flex;
+    width: 50%;
+    height: 50px;
+    justify-content: center;
+    outline: none;
+    color: $cta-color;   
+    background-color: red;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+h1{
+    @apply flex items-center justify-center text-lg font-mono text-white font-bold
+}
+
+.productName{
+    @apply text-3xl font-medium text-ipNight mt-4 font-medium 
+}
+
+.productPrice{
+    @apply text-5xl font-medium text-ipRed-200
+}
+
+.productRating{
+    @apply flex flex-row mb-4
+}
+
+.productDescription{
+    @apply w-80 text-xl text-ipNight mt-4
+}

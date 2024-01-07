@@ -16,7 +16,7 @@
         <td>{{product.name}}</td>
         <td>{{product.price}}</td>
         <td>{{product.platform}}</td>
-        <td><button>Edit</button></td>
+        <td><button (click)="navigateToEditProduct(product.id)">Edit</button></td>
         <td><button (click)="deleteProduct(product.id.toString())">Delete</button></td>
       </tr>
   </table>
