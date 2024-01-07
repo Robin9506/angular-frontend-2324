@@ -8,6 +8,7 @@
             <a class="nav-item-link" (click)="goToProductPage()">Products</a>
             <a class="nav-item-link" (click)="goToLoginPage()" *ngIf="!isLoggedIn">Login</a>
             <a class="nav-item-link" (click)="goToCustomerProfile()" *ngIf="isLoggedIn">Customer Portal</a>
+            <a class="nav-item-link" (click)="goToAdmin()" *ngIf="isLoggedIn && isAdmin">Admin Portal</a>
             <a class="nav-item-link" (click)="logout()" *ngIf="isLoggedIn">Logout</a>
         </li>
     </ul>

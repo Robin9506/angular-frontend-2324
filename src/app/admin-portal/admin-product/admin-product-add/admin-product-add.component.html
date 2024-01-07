@@ -1,0 +1,38 @@
+<div class="page-wrapper">
+    <form #addForm="ngForm">
+        <div class="w-96">
+            <div class="inputField">
+                <label class="label">Name</label>
+                <input class="addInput" type="text" name="productName" [(ngModel)]="productName">
+            </div>
+            <div class="inputField">
+                <label class="label">Price</label>
+                <input class="addInput" min="0" max="500" type="number" name="productPrice" [(ngModel)]="productPrice">
+            </div>
+            <div class="inputField">
+                <label class="label">Description</label>
+                <textarea  class="addInputDescription" type="text" name="productDescription" [(ngModel)]="productDescription"> </textarea> 
+            </div>
+            <div class="inputField">
+                <label class="label">Company</label>
+                <input class="addInput" type="text" name="productCompany" [(ngModel)]="productCompany">
+            </div>
+            <div class="inputField">
+                <label class="label">Image</label>
+                <input class="addInput" type="file" (change)="handleUpload($event)" name="productImageLink">
+            </div>
+            <div class="inputField">
+                <label class="label">Rating</label>
+                <input class="addInput" type="number" min="1" max="5" name="productRating" [(ngModel)]="productRating">
+            </div>
+            <div class="inputField">
+                <label class="label">Platform</label>
+                <input class="addInput" type="text" name="productPlatform" [(ngModel)]="productPlatform">
+            </div>
+            <div class="submitButton mt-8 mb-6" (click)="addProduct()">
+                <button type="submit" >Submit</button>
+            </div>
+        </div>
+        
+    </form>
+</div>

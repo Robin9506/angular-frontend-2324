@@ -7,7 +7,8 @@ import { CheckoutPageComponent } from './checkout/checkout-page.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register/register.component';
 import { CustomerPortalComponent } from './customer-portal/customer-portal.component';
-import { ProfileComponent } from './customer-portal/profile/profile.component';
+import { AdminPortalComponent } from './admin-portal/admin-portal.component';
+import { AdminProductAddComponent } from './admin-portal/admin-product/admin-product-add/admin-product-add.component';
 
 export const routes: Routes = [
   { path: '', component: ProductsPageComponent},
@@ -17,7 +18,9 @@ export const routes: Routes = [
   { path: 'checkout', component: CheckoutPageComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
-  { path: 'customer-portal', component: CustomerPortalComponent}
+  { path: 'customer-portal', component: CustomerPortalComponent},
+  { path: 'admin-portal', component: AdminPortalComponent},
+  { path: 'product-add', component: AdminProductAddComponent},
 ];
 
 @NgModule({

@@ -6,12 +6,15 @@ import { AccountService } from "./account.service";
 import { Account } from "../models/account.model";
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { Router } from "@angular/router";
+import { Role } from "../enums/role";
 
 @Injectable({
     providedIn: 'root',
   })
 export class AuthService{
     authSubject$: Subject<boolean> = new BehaviorSubject<boolean>(false);
+    isAdminSubject$: Subject<boolean> = new BehaviorSubject<boolean>(false);
+
     constructor(
         private httpService: HttpService, 
         private accountService: AccountService, 
@@ -20,6 +23,19 @@ export class AuthService{
 
     sendCredentials(credentials: Credentials){
         return this.httpService.makePostRequest('/auth', credentials)
+    }
+
+    isAdmin(){
+        this.accountService.getOwnAccount().subscribe({
+            next: (requestedAccount: Account) => {
+                if (requestedAccount.role === Role.ADMIN){
+                    this.isAdminSubject$.next(true);
+                }
+                else{
+                    this.isAdminSubject$.next(false);
+                }
+            }
+        });
     }
 
     isLoggedInAccountValid(){

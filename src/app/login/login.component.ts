@@ -30,6 +30,7 @@ export class LoginComponent {
         if(token !== null){
           localStorage.setItem('token', token.tokenValue);
           this.authService.loginUser();
+          this.authService.isAdmin();
           this.location.back();
         }
       }

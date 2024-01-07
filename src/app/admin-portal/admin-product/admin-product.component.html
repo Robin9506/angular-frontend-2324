@@ -1,0 +1,22 @@
+<div class="header-wrapper">
+    <div class="product-header">Products</div>
+    <div class="product-header" (click)="navigateToAddProduct()">Add-Product</div>
+</div>
+<table class="product-table">
+    <tr>
+      <th>Index</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Platform</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <tr *ngFor="let product of this.products; let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.platform}}</td>
+        <td><button>Edit</button></td>
+        <td><button (click)="deleteProduct(product.id.toString())">Delete</button></td>
+      </tr>
+  </table>

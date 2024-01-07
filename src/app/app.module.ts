@@ -17,6 +17,7 @@ import { AccountService } from './services/account.service';
 import { JwtModule } from '@auth0/angular-jwt';
 import { ProfileService } from './services/profile.service';
 import { OrderService } from './services/order.service';
+import { AdminPortalModule } from './admin-portal/admin-portal.module';
 
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -32,6 +33,7 @@ export function tokenGetter() {
     CheckoutModule,
     RunningModule,
     AuthModule,
+    AdminPortalModule,
     CustomerPortalModule,
     JwtModule.forRoot({
       config: {
