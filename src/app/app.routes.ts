@@ -12,6 +12,7 @@ import { AdminProductAddComponent } from './admin-portal/admin-product/admin-pro
 import { AdminProductEditComponent } from './admin-portal/admin-product/admin-product-edit/admin-product-edit.component';
 import { AdminPromoAddComponent } from './admin-portal/admin-promo/admin-promo-add/admin-promo-add.component';
 import { AdminPromoEditComponent } from './admin-portal/admin-promo/admin-promo-edit/admin-promo-edit.component';
+import { ProfileEditComponent } from './customer-portal/profile/profile-edit/profile-edit.component';
 
 export const routes: Routes = [
   { path: '', component: ProductsPageComponent},
@@ -27,6 +28,7 @@ export const routes: Routes = [
   { path: 'product-edit/:id', component: AdminProductEditComponent, canActivate: []},
   { path: 'promo-add', component: AdminPromoAddComponent, canActivate: []},
   { path: 'promo-edit/:id', component: AdminPromoEditComponent, canActivate: []},
+  { path: 'edit-own-account', component: ProfileEditComponent, canActivate: []},
 
 ];
 

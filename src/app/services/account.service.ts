@@ -22,12 +22,16 @@ export class AccountService{
         return this.httpService.makeGetRequest('/account/own');
     }
 
+    updateOwnAccount(account: Account){
+        return this.httpService.makePutRequest('/account/own', account);
+    }
+
     createAccount(account: Account){
         return this.httpService.makePostRequest('/account', account);
     }
 
-    deleteAccount(id: string){
-        return this.httpService.makeDeleteRequest('/account/' + id);
+    deleteAccount(){
+        return this.httpService.makeDeleteRequest('/account/own');
     }
 
     editAccount(account: Account, id: string){

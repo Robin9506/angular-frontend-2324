@@ -15,5 +15,9 @@ export class ProfileService{
         return this.accountService.getOwnAccount();
     }
 
+    editProfile(account: Account){
+        return this.accountService.updateOwnAccount(account);
+    }
+
 
 }
