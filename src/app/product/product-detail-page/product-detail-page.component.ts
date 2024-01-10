@@ -35,4 +35,13 @@ export class ProductDetailPageComponent {
     if(requestedProduct == null) return
     this.cartService.addToCart(requestedProduct);
   }
+
+  getProductRating(rating: number): Array<number> {
+    return Array(rating);
+  }
+
+  getNonRating(rating: number): Array<number> {
+    return Array(5 - rating);
+  }
+
 }

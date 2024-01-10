@@ -14,16 +14,16 @@ export class AccountService{
 
     constructor(private httpService: HttpService){}
     
-
-    // getAccounts(){
-    //     return this.accounts;
-    // }
     getAccounts(){
         return this.httpService.makeGetRequest('/account');
     }
 
     getOwnAccount(){
         return this.httpService.makeGetRequest('/account/own');
+    }
+
+    createAccount(account: Account){
+        return this.httpService.makePostRequest('/account', account);
     }
 
     deleteAccount(id: string){

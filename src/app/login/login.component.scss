@@ -1,5 +1,10 @@
 @import "../app.component.scss";
 
+span{
+    margin-top: 5px;
+    color: white;
+}
+
 .login-box{
     width: 35%;
     margin: auto;
@@ -51,6 +56,11 @@
 .submit-button button:hover{
     background-color: $cta-hover-color;
 }
+
+.submit-button button:disabled{
+    background-color: gray;
+}
+
 .register-button{
     cursor: pointer;
     color: $cta-color;

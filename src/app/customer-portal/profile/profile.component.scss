@@ -1,8 +1,10 @@
+@import "../../app.component.scss";
 
 .profile-specifications-wrapper{
     width: 100%;
     height: 100%;
     color: white;
+    
     
 }
 
@@ -10,12 +12,16 @@
     width: 50%;
     margin-top: 2.5%;
     margin: 0 auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 
 }
 
 .profile-specification-header{
     font-size: x-large;
-    color: white;
+    padding: 10px;
+    color: $cta-color;
+    background-color: $global-color;
     
 }
 
@@ -31,11 +37,13 @@ dl {
   
   dt {
     grid-column-start: 2;
-    padding: 10px;
+    padding: 20px;
+    font-weight: bold;
   }
   
   dd {
     grid-column-start: 3;
-    padding: 10px;
+    padding: 20px;
+    font-weight: bold;
 
   }

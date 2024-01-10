@@ -1,10 +1,41 @@
+@import "../../app.component.scss";
+
 .order-table{
     color: white;
+    width: 80%;
     margin: 0 auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    
 }
 
 .order-header{
     font-size: x-large;
     color: white;
 }
-    
+
+.order-row-first{
+    background-color: $global-color;
+    height: 50px;
+    color: $cta-color;
+}
+
+.order-table td {
+    color: white;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.order-products{
+    display: block;
+    line-height: 50px;
+}
+
+.order-price{
+    padding: 3px;
+}
+
+.index{
+    text-align: center;
+    line-height: 125px;
+}

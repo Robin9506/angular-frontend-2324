@@ -64,6 +64,7 @@ export class AdminProductEditComponent{
       this.productPrice > 0 && 
       this.productCompany && 
       this.productImageLink &&
+      this.productDescription.length < 256 && 
       this.productRating > 0 &&
       this.productRating < 6 &&
       this.productPlatform){

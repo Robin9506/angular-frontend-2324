@@ -3,18 +3,20 @@
         <div class="welcome-text">
             Welcome back!
         </div>
-        <form #loginForm="ngForm">
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
             <div class="login-fields">
                 <div class="input-field">
                     <label class="label">Email</label>
-                    <input class="edit-input" maxlength="24" placeholder="Email" type="email" name="username" ngModel>
+                    <input class="edit-input" maxlength="24" placeholder="Email" type="email" name="username" formControlName="email">
+                    <span *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required', 'email')">Email is required</span>
+                    <span *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('email', 'email')">Email is not correct</span>
                 </div>
                 <div class="input-field">
                     <label class="label">Password</label>
-                    <input class="edit-input" placeholder="••••••••••••" type="password" name="password" ngModel>
+                    <input class="edit-input" placeholder="••••••••••••" type="password" name="password" formControlName="password">
                 </div>
                 <div class="submit-button">
-                    <button type="submit" (click)="login(loginForm)">Login</button>
+                    <button [disabled]="loginForm.invalid" type="submit" (click)="login()">Login</button>
                 </div>
                 <div class="register-button" (click)="navigateToRegister()">
                     <p>Sign up here!</p>

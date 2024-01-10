@@ -3,26 +3,23 @@
         <p>Orders</p>
     </div>
     <br>
-    <table class="order-table" *ngFor="let order of orders">
-        <tr>
-          <th>Order Id</th>
+    <table class="order-table" *ngFor="let order of orders; let i = index">
+        <tr class="order-row-first">
+          <th>Index</th>
+          <th>Products</th>
+          <th>Price</th>
+          <th>Total Price</th>
         </tr>
         <tr>
-          <td>{{order.id}}</td>
+          <td class="index">{{i}}</td>
+          <td class="order-products" *ngFor="let product of order.products">{{product.name}} - {{product.price}} 
+          <td> 
+            <div class="order-price" *ngFor="let product of order.products">
+              {{product.price}}
+            </div>
+          </td> 
+          <td class="order-total-price">{{getTotalPrice(order.products)}}</td>
         </tr>
-        <tr>
-            <th>Products</th>
-        </tr>
-        <tr *ngFor="let product of order.products">
-            <td>{{product.name}} - {{product.price}}</td>
-        </tr>
-        <tr>
-            <th>Total Price</th>
-          </tr>
-        <tr>
-            <td>{{getTotalPrice(order.products)}}</td>
-        </tr>
-     
         <br>
       </table>
 </div>

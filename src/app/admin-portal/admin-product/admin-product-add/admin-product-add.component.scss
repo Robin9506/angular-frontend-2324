@@ -132,23 +132,3 @@ span{
     margin: 0 auto;
     margin-top: 50px;
 }
-
-h1{
-    @apply flex items-center justify-center text-lg font-mono text-white font-bold
-}
-
-.productName{
-    @apply text-3xl font-medium text-ipNight mt-4 font-medium 
-}
-
-.productPrice{
-    @apply text-5xl font-medium text-ipRed-200
-}
-
-.productRating{
-    @apply flex flex-row mb-4
-}
-
-.productDescription{
-    @apply w-80 text-xl text-ipNight mt-4
-}

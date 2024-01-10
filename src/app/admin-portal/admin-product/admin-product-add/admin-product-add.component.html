@@ -57,7 +57,8 @@
                 </div>
                 <div class="inputField">
                     <label class="label">Description</label>
-                    <textarea  class="addInputDescription" type="text" name="productDescription" [(ngModel)]="productDescription"> </textarea> 
+                    <textarea  maxlength="255" class="addInputDescription" type="text" name="productDescription" [(ngModel)]="productDescription"> </textarea> 
+                    <span *ngIf="productDescription.length > 255"> Description cant be higher than 255 characters</span>               
                 </div>
                 <div class="inputField">
                     <label class="label">Company</label>

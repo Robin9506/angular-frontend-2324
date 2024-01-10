@@ -1,1 +1,53 @@
-<p>register works!</p>
+<div class="page-wrapper">
+    <div class="login-box">
+        <div class="welcome-text">
+            Register Account
+        </div>
+        <form [formGroup]="registerForm" (ngSubmit)="register()">
+            <div class="login-fields">
+                <div class="input-field">
+                    <label class="label">Email</label>
+                    <input class="edit-input" maxlength="24" placeholder="user@rrr.com" type="email" name="email" formControlName="email">
+                    <span *ngIf="registerForm.controls['email'].dirty && registerForm.hasError('required', 'email')">Email is required</span>
+                    <span *ngIf="registerForm.controls['email'].dirty && registerForm.hasError('email', 'email')">Email is not correct</span>
+                </div>
+                <div class="input-field">
+                    <label class="label">Password</label>
+                    <input class="edit-input" placeholder="••••••••••••" type="password" name="password" formControlName="password">
+                    <span *ngIf="registerForm.controls['password'].dirty && registerForm.hasError('required', 'password')">Password is required</span>
+                    <span *ngIf="registerForm.controls['password'].dirty && registerForm.hasError('minlength', 'password')">Password should be longer than 8 characters!</span>
+                    <span *ngIf="(registerForm.controls['password'].dirty || registerForm.controls['password'].touched) 
+                    && registerForm.controls['password'].hasError('strength')
+                    && !registerForm.hasError('required', 'password') 
+                    && !registerForm.hasError('minlength', 'password')">
+                    Password should have a number, lowercase, uppercase and special character!</span>                   
+                </div>
+
+                <div class="input-field">
+                    <label class="label">Confirm Password</label>
+                    <input class="edit-input" placeholder="••••••••••••" type="password" name="confirmPassword" formControlName="confirmPassword">
+                    <span *ngIf="registerForm.errors?.['confirm']">Passwords are not the same</span>               
+                </div>
+                <div class="input-field">
+                    <label class="label">Address</label>
+                    <input class="edit-input" maxlength="24" placeholder="Jan van Laan 21" type="text" name="address" formControlName="address">
+                    <span *ngIf="registerForm.controls['address'].dirty && registerForm.hasError('required', 'address')">Address is required</span>
+                </div>
+                <div class="input-field">
+                    <label class="label">City</label>
+                    <input class="edit-input" maxlength="24" placeholder="Utrecht" type="text" name="city" formControlName="city">
+                    <span *ngIf="registerForm.controls['city'].dirty && registerForm.hasError('required', 'city')">City is required</span>
+                </div>
+                <div class="input-field">
+                    <label class="label">Country</label>
+                    <input class="edit-input" maxlength="24" placeholder="Netherlands" type="text" name="country" formControlName="country">
+                    <span *ngIf="registerForm.controls['country'].dirty && registerForm.hasError('required', 'country')">City is required</span>
+                </div>
+                <div class="submit-button">
+                    <button [disabled]="registerForm.invalid" type="submit">Register</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

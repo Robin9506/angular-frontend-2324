@@ -53,7 +53,7 @@ export class CartService{
             product.price, 
             product.description, 
             product.company, 
-            product.imageLink,
+            "",
             product.rating, 
             product.platform,
       );
