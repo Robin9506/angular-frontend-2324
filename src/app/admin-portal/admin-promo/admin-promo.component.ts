@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Promo } from '../../models/promo.model';
 import { PromoService } from '../../services/promo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-promo',
@@ -10,7 +11,7 @@ import { PromoService } from '../../services/promo.service';
 export class AdminPromoComponent {
   promos: Promo[] = [];
 
-  constructor(private promoService: PromoService){}
+  constructor(private router: Router, private promoService: PromoService){}
 
   ngOnInit(): void {
     this.refreshPromos();
@@ -22,6 +23,14 @@ export class AdminPromoComponent {
         this.promos = promos;
       }
     })
+  }
+
+  navigateToAddPromo(){
+    this.router.navigate(['promo-add']);
+  }
+
+  navigateToEditPromo(id: string){
+    this.router.navigate(['promo-edit/' + id]);
   }
 
     deletePromo(id: string){

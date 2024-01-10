@@ -7,11 +7,15 @@ import { AdminProductAddComponent } from './admin-product/admin-product-add/admi
 import { FormsModule } from '@angular/forms';
 import { AdminPromoComponent } from './admin-promo/admin-promo.component';
 import { AdminProductEditComponent } from './admin-product/admin-product-edit/admin-product-edit.component';
+import { AdminPromoAddComponent } from './admin-promo/admin-promo-add/admin-promo-add.component';
+import { AdminPromoEditComponent } from './admin-promo/admin-promo-edit/admin-promo-edit.component';
 
 @NgModule({
   declarations: [
     AdminProductComponent,
     AdminPortalComponent,
+    AdminPromoAddComponent,
+    AdminPromoEditComponent,
     AdminProductAddComponent,
     AdminProductEditComponent,
     AdminPromoComponent

@@ -15,6 +15,9 @@
                     <label class="label">Password</label>
                     <input class="edit-input" placeholder="••••••••••••" type="password" name="password" formControlName="password">
                 </div>
+                <div>
+                    <span *ngIf="loginFailed">Login failed!</span>
+                </div>
                 <div class="submit-button">
                     <button [disabled]="loginForm.invalid" type="submit" (click)="login()">Login</button>
                 </div>

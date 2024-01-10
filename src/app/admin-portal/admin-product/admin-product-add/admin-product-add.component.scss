@@ -96,7 +96,10 @@ span{
     margin-bottom: 6px;
     text-align: center;
     margin: 0 auto;
-    
+
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
     
 }
 
@@ -108,6 +111,10 @@ span{
     margin-bottom: 6px;
     text-align: center;
     margin: 0 auto;
+
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
 }
 
 .inputField{
@@ -121,14 +128,21 @@ span{
     margin-top: 50px;
 }
 
-.submitButton button{
-    display: flex;
+.submit-button button{
+   
+    padding: 2.5%;
     width: 50%;
-    height: 50px;
+    display: flex;
     justify-content: center;
-    outline: none;
-    color: $cta-color;   
-    background-color: red;
+    color: black;
+    font-weight: bold;
+    background-color: $cta-color;
+    border: none;
     margin: 0 auto;
     margin-top: 50px;
+}
+
+.submit-button button:hover{
+    cursor: pointer;
+    background-color: $cta-hover-color;
 }

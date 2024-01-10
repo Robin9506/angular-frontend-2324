@@ -13,6 +13,7 @@ import { Location } from '@angular/common';
 })
 export class LoginComponent {
   loginForm: FormGroup | any;
+  loginFailed: boolean = false;
 
 
   constructor(private formBuilder: FormBuilder,private router: Router, private location: Location, private authService: AuthService) { }
@@ -35,10 +36,15 @@ export class LoginComponent {
     .subscribe({
       next: (token) => {
         if(token !== null){
+          this.loginFailed = false;
           localStorage.setItem('token', token.tokenValue);
           this.authService.loginUser();
           this.authService.isAdmin();
           this.location.back();
+          
+        }
+        else{
+          this.loginFailed = true;
         }
       }
     });

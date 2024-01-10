@@ -98,6 +98,10 @@ span{
     margin-bottom: 6px;
     text-align: center;
     margin: 0 auto;
+
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
     
     
 }
@@ -110,6 +114,10 @@ span{
     margin-bottom: 6px;
     text-align: center;
     margin: 0 auto;
+
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
 }
 
 .inputField{
@@ -123,34 +131,21 @@ span{
     margin-top: 50px;
 }
 
-.submitButton button{
-    display: flex;
+.submit-button button{
+   
+    padding: 2.5%;
     width: 50%;
-    height: 50px;
+    display: flex;
     justify-content: center;
-    outline: none;
-    color: $cta-color;   
-    background-color: red;
+    color: black;
+    font-weight: bold;
+    background-color: $cta-color;
+    border: none;
     margin: 0 auto;
     margin-top: 50px;
 }
 
-h1{
-    @apply flex items-center justify-center text-lg font-mono text-white font-bold
-}
-
-.productName{
-    @apply text-3xl font-medium text-ipNight mt-4 font-medium 
-}
-
-.productPrice{
-    @apply text-5xl font-medium text-ipRed-200
-}
-
-.productRating{
-    @apply flex flex-row mb-4
-}
-
-.productDescription{
-    @apply w-80 text-xl text-ipNight mt-4
+.submit-button button:hover{
+    cursor: pointer;
+    background-color: $cta-hover-color;
 }
