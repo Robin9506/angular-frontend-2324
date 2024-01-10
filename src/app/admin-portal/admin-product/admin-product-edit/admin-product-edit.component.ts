@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
 import { Product } from '../../../models/product.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-product-edit',
@@ -20,9 +20,11 @@ export class AdminProductEditComponent{
   productRating: number = 0;
   productPlatform: string = '';
 
+  isRetrievingProduct: boolean = false;
 
 
-  constructor(private productService: ProductService, private activatedRoute: ActivatedRoute) { }
+
+  constructor(private productService: ProductService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id')!;
@@ -31,13 +33,14 @@ export class AdminProductEditComponent{
   }
 
   getSingleProduct(){
+    this.isRetrievingProduct = true;
     this.productService.getSingleProduct(this.id).subscribe({
       next: (product: Product) => {
         this.product = product;
       },
       complete: () => {
         this.setProductVariables();
-        console.log(this.product);
+        this.isRetrievingProduct = false;
       } 
       
     });
@@ -56,6 +59,19 @@ export class AdminProductEditComponent{
     }
   }
 
+  areRequiredFieldsFilled(): boolean{
+    if(this.productName && 
+      this.productPrice > 0 && 
+      this.productCompany && 
+      this.productImageLink &&
+      this.productRating > 0 &&
+      this.productRating < 6 &&
+      this.productPlatform){
+        return true;
+      }
+      else return false;
+  }
+
   editProduct(id: string){
     const editedProduct: Product = new Product(
       this.id,
@@ -68,7 +84,11 @@ export class AdminProductEditComponent{
       this.productPlatform
     );
 
-    this.productService.editProduct(editedProduct, id).subscribe();
+    if(this.areRequiredFieldsFilled()){
+      this.productService.editProduct(editedProduct, id).subscribe();
+      this.router.navigate(['admin-portal']);
+    }
+
   }
 
   getProductRating(rating: number): Array<number> {

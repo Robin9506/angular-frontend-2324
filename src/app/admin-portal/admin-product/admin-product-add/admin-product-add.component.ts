@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Product } from '../../../models/product.model';
 import { ProductService } from '../../../services/product.service';
 import { Router } from '@angular/router';
-import { environment } from "../../../../environments/environment.prod";
 
 @Component({
   selector: 'app-admin-product-add',
@@ -15,7 +14,7 @@ export class AdminProductAddComponent {
   productDescription: string = '';
   productCompany: string = '';
   productImageLink: string = '';
-  productRating: number = 0;
+  productRating: number = 1;
   productPlatform: string = '';
 
   id: string = "";
@@ -34,7 +33,10 @@ export class AdminProductAddComponent {
       this.productPlatform
     );
 
-    this.productService.addProduct(newProduct);
+   if(this.areRequiredFieldsFilled()){
+      this.productService.addProduct(newProduct);
+      this.router.navigate(['admin-portal']);
+    }
   }
 
   handleUpload(event: any) {
@@ -52,6 +54,27 @@ export class AdminProductAddComponent {
       }
     };
 }
+
+  areRequiredFieldsFilled(): boolean{
+    if(this.productName && 
+      this.productPrice > 0 && 
+      this.productCompany && 
+      this.productImageLink &&
+      this.productRating > 0 &&
+      this.productRating < 6 &&
+      this.productPlatform){
+        return true;
+      }
+      else return false;
+  }
+
+  getProductRating(rating: number): Array<number> {
+    return Array(rating);
+  }
+
+  getNonRating(rating: number): Array<number> {
+    return Array(5 - rating);
+  }
 
 
 }

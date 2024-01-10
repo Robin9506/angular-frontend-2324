@@ -19,6 +19,20 @@ export class ProductService {
         return this.httpService.makeGetRequest("/product");
     }
 
+    getOrderedProductsByName(): Observable<Product[]>{
+        this.httpService.makeGetRequest("/product/ordered").subscribe((products) =>{
+        this.products = products;
+        }) 
+        return this.httpService.makeGetRequest("/product/ordered");
+    }
+
+    getOrderedProductsByPrice(): Observable<Product[]>{
+        this.httpService.makeGetRequest("/product/ordered/price").subscribe((products) =>{
+        this.products = products;
+        }) 
+        return this.httpService.makeGetRequest("/product/ordered/price");
+    }
+
     addProduct(product: Product){
         this.httpService.makePostRequest("/product", product).subscribe();
     }

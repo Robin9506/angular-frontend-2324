@@ -45,6 +45,38 @@ export class ProductListComponent {
     });
   }
 
+  getProductsOrderByName(){
+    this.isRetrievingProducts = true;
+    this.productService.getOrderedProductsByName().subscribe({
+      next: (products: Product[]) => {
+        console.log(products);
+        this.products = products;
+
+      },
+      complete: () =>{
+        console.log(this.products);
+        this.isRetrievingProducts = false;
+
+      }
+    });
+  }
+
+  getProductsOrderByPrice(){
+    this.isRetrievingProducts = true;
+    this.productService.getOrderedProductsByPrice().subscribe({
+      next: (products: Product[]) => {
+        console.log(products);
+        this.products = products;
+
+      },
+      complete: () =>{
+        console.log(this.products);
+        this.isRetrievingProducts = false;
+
+      }
+    });
+  }
+
   goToSingleProduct(product: Product){
     console.log(product);
     this.router.navigate(["product/" + product.id]);

@@ -1,21 +1,56 @@
+@import "../../app.component.scss";
+
+
+td svg{
+    width: 50%;
+    height: 50%;
+}
+
+td svg:hover{
+    cursor: pointer;
+}
+
 .product-table{
     width: 80%;
     margin: 0 auto;
-    background-color: red;
+    border-collapse: collapse;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-.product-table tr {
-    border: 1px solid #ddd;
-    padding: 8px;
+.product-row-first{
+    background-color: $global-color;
+    height: 50px;
+    color: $cta-color;
+}
+
+.product-table td {
+    color: white;
+    font-weight: bold;
 }
 
 .product-header{
     color: white;
     font-weight: bold;
     font-size: x-large;
-    background-color: green;
+    margin-left: 115px;
 }
 
+.product-add-button{
+    filter: invert(98%) sepia(39%) saturate(5646%) 
+    hue-rotate(322deg) brightness(106%) contrast(92%);
+}
+
+.product-add-button:hover{
+    cursor: pointer;
+}
+
+.product-add-button svg{
+    width: 80%;
+    height: 80%;
+}
+
+
 .header-wrapper{
-    display: inline-block;
+    display: flex;
+    margin: 0 auto;
 }

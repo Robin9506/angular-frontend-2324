@@ -13,6 +13,7 @@ export class ProductDetailPageComponent {
   product: Product | undefined;
   productId: string = '';
 
+
   constructor(private activatedRoute: ActivatedRoute, private productService: ProductService, private cartService: CartService) { }
 
   ngOnInit(): void {
