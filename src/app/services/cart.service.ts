@@ -31,13 +31,20 @@ export class CartService{
     }
 
     addToCart(product: Product){
-        this.httpService.makePostRequest("/cart/own/" + product.id, null).subscribe();
-        this.getCartSubject();
+        this.httpService.makePostRequest("/cart/own/" + product.id, null).subscribe({
+            complete: () => {
+                this.getCartSubject();
+            }   
+        });
+      
     }
 
     removeFromCart(product: Product){
-        this.httpService.makeDeleteRequest("/cart/own/" + product.id).subscribe();
-        this.getCartSubject();
+        this.httpService.makeDeleteRequest("/cart/own/" + product.id).subscribe({
+            complete: () => {
+                this.getCartSubject();
+            }
+        });
     }
 
     getCartSubject(){
