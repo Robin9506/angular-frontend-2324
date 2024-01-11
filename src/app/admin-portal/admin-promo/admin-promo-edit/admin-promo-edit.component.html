@@ -1,0 +1,24 @@
+<div class="page-wrapper">
+    <div class="form-wrapper">
+        <form #addForm="ngForm">
+            <div class="form-fields">
+                <div class="inputField">
+                    <label class="label">Code</label>
+                    <input class="addInput" type="text" name="code" [(ngModel)]="code">
+                    <span *ngIf="!code"> code cannot be empty</span>
+                </div>
+                <div class="inputField">
+                    <label class="label">Discount</label>
+                    <input class="addInput" onkeydown="return false" min="0" max="100" type="number" name="discount" [(ngModel)]="discount">
+                    <span *ngIf="discount <= 0"> discount cannot be zero</span>
+                </div>
+                <div>
+                </div>
+                <div class="submit-button" (click)="editPromo()">
+                    <button type="submit" >Submit</button>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+</div>

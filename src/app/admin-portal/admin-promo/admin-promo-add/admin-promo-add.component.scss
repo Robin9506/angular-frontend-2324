@@ -1,0 +1,52 @@
+@import "../../../app.component.scss";
+
+span{
+    margin-top: 2px;
+    color: $cta-color;
+    font-size: 15px;
+}
+
+.form-fields{
+    width: 100%;
+}
+
+.addInput{
+    display: block;
+    width: 50%;
+    padding: 3px;
+    margin-top: 20px;
+    margin-bottom: 6px;
+    text-align: center;
+    margin: 0 auto;
+
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    
+}
+
+.inputField{
+    text-align: center;
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+.label{
+    color: white;
+    margin-top: 50px;
+}
+
+.submit-button button{
+    margin-top: 5%;
+    padding: 2.5%;
+    width: 50%;
+    color: black;
+    font-weight: bold;
+    background-color: $cta-color;
+    border: none;
+}
+
+.submit-button button:hover{
+    cursor: pointer;
+    background-color: $cta-hover-color;
+}

@@ -1,0 +1,28 @@
+@import "../app.component.scss";
+
+.breadcrumbs{
+    width: 75%;
+}
+
+ul.breadcrumb {
+    padding: 10px 0;
+    color: $cta-color;
+    list-style: none;
+  }
+  
+  ul.breadcrumb li {
+    display: inline;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: $box-color;
+    content: ">";
+  }
+
+  ul.breadcrumb li.clickable:hover {
+    color: $cta-hover-color;
+    cursor: pointer;
+  }

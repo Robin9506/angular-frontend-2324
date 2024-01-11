@@ -1,0 +1,136 @@
+@import "../../app.component.scss";
+
+.single-product-wrapper{
+    width: 75%;
+    height: 70%;
+    margin: 0 auto;
+    padding-top: 0.75%;
+    // background-color: blue;
+}
+
+.single-product-main-section{
+    width: 75%;
+    height: 52.5%;
+    min-height: 252px;
+    margin-top: 1%;
+    // background-color: orange;
+}
+
+.single-product-image {
+    width: 17.5%;
+    height: 0%;   
+    // min-height: 252px;  
+    font-size:0;
+    line-height:0;
+}
+
+.single-product-image img{  
+    width: 100%;
+    height: 100%;
+
+    
+}
+
+.single-product-details {
+    width: 50%;
+    height: 100%;
+    padding-left: 2%;
+    
+}
+
+.single-product-title {
+    color: white;
+    font-size: xx-large;
+
+}
+
+.single-product-description {
+    color: $cta-color;
+    font-size: large;
+    margin-top: 2%;
+}
+
+.buy-box-wrapper {
+    width: 20%;
+    height: 100%;
+    margin-top: 1%;
+    // background-color: red;
+    
+}
+
+.display-inline-block {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.product-specifications-wrapper{
+    width: 100%;
+    height: 100%;
+    color: white;
+    margin-top: 50px;
+    
+    
+}
+
+.product-specifications{
+    width: 75%;
+
+}
+
+.product-specification-header{
+    font-size: larger;
+    padding-bottom: 5px;
+    color: $cta-color;
+    // background-color: $global-color;
+    
+}
+
+.product-specification-details{
+    margin-top: 1%;
+    border-collapse: collapse;
+    background-color: $global-color;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    
+}
+
+dl {
+    display: grid;
+    grid-template-columns: 100px 100px;
+  }
+  
+  dt {
+    grid-column-start: 1;
+    padding: 20px;
+    font-weight: bold;
+  }
+  
+  dd {
+    grid-column-start: 3 ;
+    padding: 20px;
+    font-weight: bold;
+
+  }
+
+.product-rating{
+    margin-top: 50px;
+    display: flex;
+    width: 35%;
+
+}
+
+.product-rating svg{
+    width: 100%;
+    height: 100%;
+    filter: invert(98%) sepia(39%) saturate(5646%) 
+    hue-rotate(322deg) brightness(106%) contrast(92%);
+    
+}
+
+.product-rating-number{
+    margin-top: 8px;
+    margin-left: 5px;
+    font-weight: bold;
+    color: white;
+}
+
+  

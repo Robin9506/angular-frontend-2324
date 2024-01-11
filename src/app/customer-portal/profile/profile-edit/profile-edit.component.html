@@ -1,0 +1,51 @@
+<div class="page-wrapper">
+    <div class="login-box">
+        <div class="welcome-text">
+            Edit Profile
+        </div>
+        <form [formGroup]="profileForm" (ngSubmit)="editProfile()">
+            <div class="login-fields">
+                <div class="input-field">
+                    <label class="label">Email</label>
+                    <input class="edit-input email" [value]="email" maxlength="24" [placeholder]="email" type="email" name="email" formControlName="email" >
+                </div>
+                <div class="input-field">
+                    <label class="label">Password</label>
+                    <input class="edit-input"  type="password" name="password" formControlName="password">
+                    <span *ngIf="profileForm.controls['password'].dirty && profileForm.hasError('required', 'password')">Password is required</span>
+                    <span *ngIf="profileForm.controls['password'].dirty && profileForm.hasError('minlength', 'password')">Password should be longer than 8 characters!</span>
+                    <span *ngIf="(profileForm.controls['password'].dirty || profileForm.controls['password'].touched) 
+                    && profileForm.controls['password'].hasError('strength')
+                    && !profileForm.hasError('required', 'password') 
+                    && !profileForm.hasError('minlength', 'password')">
+                    Password should have a number, lowercase, uppercase and special character!</span>                   
+                </div>
+
+                <div class="input-field">
+                    <label class="label">Confirm Password</label>
+                    <input class="edit-input"  type="password" name="confirmPassword" formControlName="confirmPassword">
+                    <span *ngIf="profileForm.errors?.['confirm']">Passwords are not the same</span>               
+                </div>
+                <div class="input-field">
+                    <label class="label">Address</label>
+                    <input class="edit-input" maxlength="24" [placeholder]="address" type="text" name="address" formControlName="address">
+                    <span *ngIf="profileForm.controls['address'].dirty && profileForm.hasError('required', 'address')">Address is required</span>
+                </div>
+                <div class="input-field">
+                    <label class="label">City</label>
+                    <input class="edit-input"  maxlength="24" [placeholder]="city" type="text" name="city" formControlName="city">
+                    <span *ngIf="profileForm.controls['city'].dirty && profileForm.hasError('required', 'city')">City is required</span>
+                </div>
+                <div class="input-field">
+                    <label class="label">Country</label>
+                    <input class="edit-input" maxlength="24"  [placeholder]="country" type="text" name="country" formControlName="country">
+                    <span *ngIf="profileForm.controls['country'].dirty && profileForm.hasError('required', 'country')">City is required</span>
+                </div>
+                <div class="submit-button">
+                    <button [disabled]="profileForm.invalid" type="submit">Update</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

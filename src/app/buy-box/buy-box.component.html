@@ -1,0 +1,23 @@
+<div class="checkout-box ">
+    <div class="checkout-box-topbar">
+        <p>Great Choice!</p>
+    </div>
+    <div class="checkout-box-details">
+        <div class="checkout-promo">
+            <p>Offered by Triple R Games</p>
+            <p>{{product?.rating}} / 5 Rating</p>
+        </div>
+        <div class="single-product-price">
+            <p>€{{product?.price}}</p>
+        </div>
+        <div class="add-to-cart-button" (click)="requestProductToCart()" style="margin-top: 6.5%;">
+            <p>Add To Cart</p>
+        </div>
+        <hr>
+        <div class="advertisement">
+            <p class="free">above €50 euro</p>
+            <p class="extra">for RRR VIP</p>
+            <p class="choice">right here!</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+@import "../../app.component.scss";
+
+svg{
+  padding-left: 10px;
+}
+
+svg:hover{
+  cursor: pointer;
+}
+
+.profile-buttons svg{
+  justify-content: center;
+}
+
+.profile-specifications-wrapper{
+    width: 100%;
+    height: 100%;
+    color: white;
+}
+
+.profile-specifications{
+    width: 50%;
+    margin-top: 2.5%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+}
+
+.profile-specification-header{
+    font-size: x-large;
+    padding: 10px;
+    color: $cta-color;
+    background-color: $global-color;
+    
+}
+
+.profile-specification-details{
+    margin-top: 1%;
+    
+}
+
+dl {
+    display: grid;
+    grid-template-columns: 100px 100px;
+  }
+  
+  dt {
+    grid-column-start: 2;
+    padding: 20px;
+    font-weight: bold;
+  }
+  
+  dd {
+    grid-column-start: 3;
+    padding: 20px;
+    font-weight: bold;
+
+  }

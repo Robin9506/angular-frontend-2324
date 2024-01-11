@@ -1,0 +1,12 @@
+<label class="promo-label" for="promo-code">Promo</label>
+<div class="promo-box" *ngIf="!hasDiscount">
+    
+    <input placeholder="code" (keydown.enter)="enterCode(promo.value);" class="promo-input" type="text" id="promo-code" name="promo-code" #promo><br><br>
+    <button *ngIf="!hasEnteredCode" class="submit-button" (click)="enterCode(promo.value)">Enter</button>
+</div>
+
+<div class="promo-box" *ngIf="hasDiscount">
+    <label class="discount-label" for="promo-code">{{currentPromoCode}} | {{currentDiscount}}%</label>
+    <button (click)="removeCode()">X</button>
+
+</div>

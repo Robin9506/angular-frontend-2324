@@ -1,0 +1,30 @@
+<div class="page-wrapper">
+    <div class="login-box">
+        <div class="welcome-text">
+            Welcome back!
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="login-fields">
+                <div class="input-field">
+                    <label class="label">Email</label>
+                    <input class="edit-input" maxlength="24" placeholder="Email" type="email" name="username" formControlName="email">
+                    <span *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required', 'email')">Email is required</span>
+                    <span *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('email', 'email')">Email is not correct</span>
+                </div>
+                <div class="input-field">
+                    <label class="label">Password</label>
+                    <input class="edit-input" placeholder="••••••••••••" type="password" name="password" formControlName="password">
+                </div>
+                <div>
+                    <span *ngIf="loginFailed">Login failed!</span>
+                </div>
+                <div class="submit-button">
+                    <button [disabled]="loginForm.invalid" type="submit" (click)="login()">Login</button>
+                </div>
+                <div class="register-button" (click)="navigateToRegister()">
+                    <p>Sign up here!</p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

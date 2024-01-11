@@ -1,0 +1,14 @@
+@import "../app.component.scss";
+
+.price-wrapper{
+    display:flex;
+    justify-content: right;
+    margin-right: 125px;
+
+}
+
+.price{
+    color: white;
+    font-weight: bold;
+    margin-left: 200px;
+}
