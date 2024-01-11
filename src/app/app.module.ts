@@ -40,7 +40,7 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        allowedDomains: [environment.tokenUrl],
+        allowedDomains: ['http://triplergames.com:8080', 'localhost:8080'],
       },
     })    
   ],
