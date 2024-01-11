@@ -33,6 +33,11 @@ export class PromoService{
         return this.httpService.makePutRequest("/promo/" + id, promo);
     }
 
+    postPromoCodeForDiscount(promoCode: string){
+        const promo: Promo = new Promo("default-id", promoCode, 0);
+        return this.httpService.makePostRequest("/promo", promo)
+    }
+
     
 
 

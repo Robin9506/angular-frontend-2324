@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Cart } from '../../models/cart.model';
+import { Product } from '../../models/product.model';
 
 @Component({
   selector: 'cart-component',
@@ -8,20 +9,12 @@ import { Cart } from '../../models/cart.model';
 })
 export class CartComponent {
   @Input() public cart: Cart | undefined;
-  @Output() public totalPrice: EventEmitter<number> = new EventEmitter
+  @Output() public remove: EventEmitter<Product> = new EventEmitter
 
   ngOnInit(): void {
-    this.calculateTotalPrice();
   }
-
-  calculateTotalPrice(){
-    let currentPrice: number = 0;
-    if(this.cart != null){
-      for (let index = 0; index < this.cart?.products.length; index++) {
-        currentPrice += this.cart.products[index].price;   
-      }
-    }
-    this.totalPrice.emit(currentPrice);
+  deleteFromCart(product: Product){
+    this.remove.emit(product);
   }
 
 }

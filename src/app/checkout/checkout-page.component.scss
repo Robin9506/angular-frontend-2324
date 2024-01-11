@@ -1,9 +1,14 @@
 @import "../app.component.scss";
 
-// .checkout-wrapper{
-//     width: 60%;
-//     height: 100%;
-//     text-align: center;
-//     margin: 0 auto;
-//     background-color: yellow;
-// }
+.price-wrapper{
+    display:flex;
+    justify-content: right;
+    margin-right: 125px;
+
+}
+
+.price{
+    color: white;
+    font-weight: bold;
+    margin-left: 200px;
+}

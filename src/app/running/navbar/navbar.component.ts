@@ -16,25 +16,24 @@ export class NavbarComponent {
   isAdmin: boolean = false;
   loginObserver: Subscription = new Subscription();
   adminObserver: Subscription = new Subscription();
+  amountSubscription: Subscription = new Subscription();
 
   constructor(private router: Router, private cartService: CartService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.authService.isLoggedInAccountValid();
     this.authService.isAdmin();
-    this.amountInCart = this.cartService.getCurrentAmountInCart();
-    this.cartService.getCartSubject().subscribe({
-      next: (cartItems: Cart) => {
-        this.amountInCart = cartItems.products.length;
-      }
-    });
     this.loginObserver = this.authService.authSubject$.subscribe(
       loginState => {this.isLoggedIn = loginState;}
     );
 
     this.adminObserver = this.authService.isAdminSubject$.subscribe(
       role => {this.isAdmin = role}
-    )       
+    )      
+    
+    this.amountSubscription = this.cartService.cart$.subscribe(
+      cart => {this.amountInCart = cart.products.length}
+    )   
   }
 
   goToHomePage(){this.router.navigate(['home']);}

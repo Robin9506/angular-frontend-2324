@@ -9,7 +9,7 @@ import { HttpService } from './http.service';
   })
 export class CartService{
     public cart: Cart | undefined;
-    private cart$: Subject<Cart> = new BehaviorSubject<Cart>(new Cart([]));
+    public cart$: Subject<Cart> = new BehaviorSubject<Cart>(new Cart([]));
 
     constructor(private httpService: HttpService){}
 
@@ -19,7 +19,7 @@ export class CartService{
                 this.cart = cart;
             },
             complete: () => {
-                console.log(this.cart);
+                this.setCart();
             }
         })
     }
@@ -30,21 +30,24 @@ export class CartService{
         }
     }
 
-    addToCart(product: Product){}
+    addToCart(product: Product){
+        this.httpService.makePostRequest("/cart/own/" + product.id, null).subscribe();
+        this.getCartSubject();
+    }
+
+    removeFromCart(product: Product){
+        this.httpService.makeDeleteRequest("/cart/own/" + product.id).subscribe();
+        this.getCartSubject();
+    }
 
     getCartSubject(){
         this.getCartFromServer();
         this.setCart();
         return this.cart$;
     }
-
-    getCurrentAmountInCart(){
-        this.getCartSubject();
-        return this.cart?.products.length;
-    }
-
+    
     clearCart(){
-        localStorage.removeItem('cartItems');
+        this.cart = new Cart([]);
         this.setCart();
     }
 }

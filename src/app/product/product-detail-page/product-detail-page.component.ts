@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { Product } from '../../models/product.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { CartService } from '../../services/cart.service';
+import { AuthService } from '../../services/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-product-detail-page',
@@ -12,12 +14,17 @@ import { CartService } from '../../services/cart.service';
 export class ProductDetailPageComponent {
   product: Product | undefined;
   productId: string = '';
+  isLoggedIn: boolean = false;
+  loginObserver: Subscription = new Subscription();
 
 
-  constructor(private activatedRoute: ActivatedRoute, private productService: ProductService, private cartService: CartService) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private productService: ProductService, private cartService: CartService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.productId = this.activatedRoute.snapshot.paramMap.get('id')!;
+    this.loginObserver = this.authService.authSubject$.subscribe(
+      loginState => {this.isLoggedIn = loginState;}
+    );
     this.getSingleProduct();
   }
 
@@ -32,8 +39,16 @@ export class ProductDetailPageComponent {
   }
 
   addSingleProductToCart(requestedProduct: Product){
-    if(requestedProduct == null) return
-    this.cartService.addToCart(requestedProduct);
+    console.log(this.isLoggedIn)
+    if(!this.isLoggedIn){
+      this.router.navigate(['login'])
+    }
+    else{
+      if(requestedProduct == null) return
+      this.cartService.addToCart(requestedProduct);
+      this.cartService.getCartSubject();
+    }
+    
   }
 
   getProductRating(rating: number): Array<number> {

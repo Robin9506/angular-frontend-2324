@@ -7,6 +7,7 @@ import { Account } from "../models/account.model";
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { Router } from "@angular/router";
 import { Role } from "../enums/role";
+import { CartService } from "./cart.service";
 
 @Injectable({
     providedIn: 'root',
@@ -17,7 +18,8 @@ export class AuthService{
 
     constructor(
         private httpService: HttpService, 
-        private accountService: AccountService, 
+        private accountService: AccountService,
+        private cartService: CartService, 
         private jwtHelper: JwtHelperService,
         private router: Router){}
 
@@ -62,10 +64,12 @@ export class AuthService{
 
     loginUser(){
         this.authSubject$.next(true);
+        this.cartService.getCartSubject();
     }
     
     logoutUser(){
         this.authSubject$.next(false);
+        this.cartService.clearCart();
         localStorage.removeItem('token');
     }
 }

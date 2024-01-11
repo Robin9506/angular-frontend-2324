@@ -1,0 +1,51 @@
+@import "../../app.component.scss";
+
+td svg{
+    width: 25%;
+    height: 25%;
+}
+
+td:first-of-type{
+    width: 25%;
+    padding: 5px;
+}
+
+td img{
+    width: 50%;
+    height: 50%;
+}
+
+td svg:hover{
+    cursor: pointer;
+}
+
+.cart-table{
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.cart-table td {
+    color: white;
+    font-weight: bold;
+}
+
+.cart-header{
+    color: white;
+    font-weight: bold;
+    font-size: x-large;
+    margin-left: 115px;
+
+}
+
+.cart-row-first{
+    background-color: $global-color;
+    height: 50px;
+    color: $cta-color;
+}
+
+.header-wrapper{
+    display: flex;
+    margin: 0 auto;
+}
