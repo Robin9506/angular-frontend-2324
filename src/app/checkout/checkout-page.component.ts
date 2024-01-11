@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { Cart } from '../models/cart.model';
 import { Subscription } from 'rxjs';
 import { Product } from '../models/product.model';
-import { ActivatedRoute } from '@angular/router';
+
+import { PromoComponent } from './promo/promo.component';
 
 @Component({
   selector: 'app-checkout',
@@ -13,13 +14,14 @@ import { ActivatedRoute } from '@angular/router';
 export class CheckoutPageComponent {
   cart: Cart | undefined;
   cartObserver: Subscription = new Subscription();
+  @ViewChild (PromoComponent) promo: PromoComponent | undefined;
 
   totalPrice: number = 0;
   discountPrice: number = 0;
   promoDiscount: number = 0;
 
 
-  constructor(private activedRoute: ActivatedRoute, private cartService: CartService){}
+  constructor(private cartService: CartService){}
 
   ngOnInit(): void {
     this.cartService.getCartFromServer();
@@ -33,18 +35,13 @@ export class CheckoutPageComponent {
   }
 
   calculateTotalPrice(){  
-    console.log(this.cart);
     let currentPrice = 0;
     if(this.cart != null){
       for (let index = 0; index < this.cart?.products.length; index++) {
         currentPrice += this.cart.products[index].price;   
       }
-    }
-    if(this.discountPrice > 0 ){
-      this.totalPrice = this.discountPrice
-    }
-    else{
-      this.totalPrice = currentPrice
+
+      this.totalPrice = currentPrice - this.discountPrice;
     }
   }
 
@@ -59,17 +56,16 @@ export class CheckoutPageComponent {
     let totalPrice = this.totalPrice;
 
     if(this.promoDiscount > 0){
-        return this.discountPrice = totalPrice *= ((100 - this.promoDiscount)/100);
+      this.discountPrice = totalPrice *= ((100 - this.promoDiscount)/100);
+      console.log(this.discountPrice);
+      return this.discountPrice;
     }
     return this.discountPrice = 0;  
   }
 
   removeFromCart(product: Product){
     this.cartService.removeFromCart(product);
-    this.totalPrice -= product.price;
     this.cartService.getCartFromServer();
+    this.promo?.removeCode();
   }
-
-
-
 }
