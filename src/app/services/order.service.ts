@@ -19,4 +19,8 @@ export class OrderService {
         }) 
         return this.httpService.makeGetRequest("/order/own");
     }
+    
+    postOrder(){
+      return this.httpService.makePostRequest("/order", null);
+    }
 }
