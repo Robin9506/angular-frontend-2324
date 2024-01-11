@@ -69,7 +69,6 @@ export class CheckoutPageComponent {
 
   removeFromCart(product: Product){
     this.cartService.removeFromCart(product);
-    this.cartService.getCartFromServer();
     this.promo?.removeCode();
   }
 
