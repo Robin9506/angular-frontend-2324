@@ -16,3 +16,19 @@ h1{
     font-weight: bold;
     margin-left: 200px;
 }
+
+button{
+    margin-top: 5%;
+    padding: 2.5%;
+    width: 50%;
+    margin-left: 180px;
+    color: black;
+    font-weight: bold;
+    background-color: $cta-color;
+    border: none;
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: $cta-hover-color;
+}
