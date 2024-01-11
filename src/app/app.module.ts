@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, forwardRef } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
@@ -19,7 +19,7 @@ import { ProfileService } from './services/profile.service';
 import { OrderService } from './services/order.service';
 import { AdminPortalModule } from './admin-portal/admin-portal.module';
 import { PromoService } from './services/promo.service';
-import { AppRoutingModule, routes } from './app.routes';
+import { CartService } from './services/cart.service';
 
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -44,7 +44,7 @@ export function tokenGetter() {
     })    
   ],
   exports: [RunningModule, RouterModule],
-  providers: [HttpService, ProductService, AuthService, AccountService, ProfileService, OrderService, PromoService],
+  providers: [HttpService, ProductService, CartService , AuthService, AccountService, ProfileService, OrderService, PromoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

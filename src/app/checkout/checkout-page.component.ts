@@ -8,7 +8,7 @@ import { Cart } from '../models/cart.model';
   styleUrl: './checkout-page.component.scss'
 })
 export class CheckoutPageComponent {
-  cartItems: Cart[] = [];
+  cart: Cart | undefined;
 
   @Input()
   totalPrice: number = 0;
@@ -20,13 +20,15 @@ export class CheckoutPageComponent {
 
   ngOnInit(): void {
     this.getCartItems();
-    console.log(this.cartItems);
+    this.getCart();
   }
 
   getCartItems(){
-    this.cartService.getCartSubject().subscribe((cart: Cart[]) => {
-      this.cartItems = cart;
-    });
+    this.cartService.getCartFromServer();
+  }
+
+  getCart(){
+    this.cart = this.cartService.cart;
   }
 
   setTotalPrice(newPrice: number){

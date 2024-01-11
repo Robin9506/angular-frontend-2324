@@ -13,6 +13,7 @@ import { AdminProductEditComponent } from './admin-portal/admin-product/admin-pr
 import { AdminPromoAddComponent } from './admin-portal/admin-promo/admin-promo-add/admin-promo-add.component';
 import { AdminPromoEditComponent } from './admin-portal/admin-promo/admin-promo-edit/admin-promo-edit.component';
 import { ProfileEditComponent } from './customer-portal/profile/profile-edit/profile-edit.component';
+import { AuthGuard } from './validators/admin-guard';
 
 export const routes: Routes = [
   { path: '', component: ProductsPageComponent},
@@ -23,7 +24,7 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'customer-portal', component: CustomerPortalComponent},
-  { path: 'admin-portal', component: AdminPortalComponent, canActivate: []},
+  { path: 'admin-portal', component: AdminPortalComponent, canActivate: [AuthGuard]},
   { path: 'product-add', component: AdminProductAddComponent, canActivate: []},
   { path: 'product-edit/:id', component: AdminProductEditComponent, canActivate: []},
   { path: 'promo-add', component: AdminPromoAddComponent, canActivate: []},

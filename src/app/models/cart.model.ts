@@ -1,27 +1,17 @@
 import {Product} from './product.model';
 
 export class Cart {
-    private _product: Product;
-    private _count: number = 1;
+    private _products: Product[];
 
-    constructor(product: Product) {
-        this._product = product;
+    constructor(products: Product[]) {
+        this._products = products;
     } 
 
-    public get product(){
-        return this._product;
+    public get products(){
+        return this._products;
     }
 
-    public set product(value: Product){
-        this._product = value;
+    public set products(value: Product[]){
+        this._products = value;
     }
-
-    public get count(){
-        return this._count;
-    }
-
-    public set count(value: number){
-        this._count = value;
-    }
-
 }

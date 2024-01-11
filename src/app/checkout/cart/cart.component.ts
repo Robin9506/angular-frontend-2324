@@ -7,7 +7,7 @@ import { Cart } from '../../models/cart.model';
   styleUrl: './cart.component.scss'
 })
 export class CartComponent {
-  @Input() public cart: Cart[] = [];
+  @Input() public cart: Cart | undefined;
   @Output() public totalPrice: EventEmitter<number> = new EventEmitter
 
   ngOnInit(): void {
@@ -16,10 +16,11 @@ export class CartComponent {
 
   calculateTotalPrice(){
     let currentPrice: number = 0;
-    for (let index = 0; index < this.cart.length; index++) {
-      currentPrice += this.cart[index].product.price;   
+    if(this.cart != null){
+      for (let index = 0; index < this.cart?.products.length; index++) {
+        currentPrice += this.cart.products[index].price;   
+      }
     }
-
     this.totalPrice.emit(currentPrice);
   }
 

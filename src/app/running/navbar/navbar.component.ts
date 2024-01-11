@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
-import { Cart } from '../../models/cart.model';
 import { AuthService } from '../../services/auth.service';
 import { Subscription } from 'rxjs';
+import { Cart } from '../../models/cart.model';
 
 @Component({
   selector: 'navbar-component',
@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-  amountInCart: number = 0;
+  amountInCart: number | undefined = 0;
   isLoggedIn: boolean = false;
   isAdmin: boolean = false;
   loginObserver: Subscription = new Subscription();
@@ -24,8 +24,8 @@ export class NavbarComponent {
     this.authService.isAdmin();
     this.amountInCart = this.cartService.getCurrentAmountInCart();
     this.cartService.getCartSubject().subscribe({
-      next: (cartItems: Cart[]) => {
-        this.amountInCart = cartItems.length;
+      next: (cartItems: Cart) => {
+        this.amountInCart = cartItems.products.length;
       }
     });
     this.loginObserver = this.authService.authSubject$.subscribe(
@@ -43,5 +43,11 @@ export class NavbarComponent {
   goToCustomerProfile(){this.router.navigate(['customer-portal']);}
   goToAdmin(){this.router.navigate(['admin-portal']);}
   logout(){this.authService.logoutUser(); this.router.navigate(['home']);}
-  navigateToCheckout(){this.router.navigate(['checkout']);}
+  navigateToCheckout(){
+    if(this.isLoggedIn){
+      this.router.navigate(['checkout']);
+    } else {
+      this.goToLoginPage();
+    }
+  }
 }
