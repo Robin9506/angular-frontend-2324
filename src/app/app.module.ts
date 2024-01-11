@@ -20,6 +20,7 @@ import { OrderService } from './services/order.service';
 import { AdminPortalModule } from './admin-portal/admin-portal.module';
 import { PromoService } from './services/promo.service';
 import { CartService } from './services/cart.service';
+import { environment } from '../environments/environment.prod';
 
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -39,7 +40,7 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        allowedDomains: ['localhost:8080'],
+        allowedDomains: [environment.tokenUrl],
       },
     })    
   ],
