@@ -46,7 +46,6 @@ export class ProductDetailPageComponent {
     else{
       if(requestedProduct == null) return
       this.cartService.addToCart(requestedProduct);
-      this.cartService.getCartSubject();
     }
     
   }
