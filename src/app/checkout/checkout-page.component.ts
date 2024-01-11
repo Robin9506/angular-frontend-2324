@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { Product } from '../models/product.model';
 
 import { PromoComponent } from './promo/promo.component';
+import { OrderService } from '../services/order.service';
 
 @Component({
   selector: 'app-checkout',
@@ -20,10 +21,13 @@ export class CheckoutPageComponent {
   discountPrice: number = 0;
   promoDiscount: number = 0;
 
+  orderCreated: boolean = false;
 
-  constructor(private cartService: CartService){}
+
+  constructor(private cartService: CartService, private orderService: OrderService){}
 
   ngOnInit(): void {
+    this.orderCreated = false;
     this.cartService.getCartFromServer();
     this.cartObserver = this.cartService.cart$.subscribe(
       cart => {
@@ -67,5 +71,18 @@ export class CheckoutPageComponent {
     this.cartService.removeFromCart(product);
     this.cartService.getCartFromServer();
     this.promo?.removeCode();
+  }
+
+  order(){
+    if(this.cart != null && this.cart?.products.length > 0){
+      this.orderCreated = true;
+      this.orderService.postOrder().subscribe({
+        complete: () => {
+          this.cartService.clearCart();
+        }
+      });
+
+    }
+
   }
 }

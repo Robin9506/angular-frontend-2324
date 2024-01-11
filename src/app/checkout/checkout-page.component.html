@@ -1,9 +1,20 @@
 <div class="page-wrapper">
-  <cart-component [cart]="cart" 
+  <div *ngIf="!orderCreated">
+    <cart-component [cart]="cart" 
     (remove)="removeFromCart($event)" ></cart-component>
     <div class="page-wrapper price-wrapper ">
       <promo-code (code)="giveDiscount($event)"></promo-code>
-      <p class="price">Total Price: {{totalPrice | number : '1.2-2'}}</p>
+      <div>
+        <p class="price">Total Price: {{totalPrice | number : '1.2-2'}}</p>
+        <button (click)="order()">order</button>
+      </div>
+
     </div>
+  </div>
+
+    <div class="checkout" *ngIf="orderCreated">
+      <h1>Order is created, please check profile for made order!</h1>
+    </div>
+
   
 </div>
