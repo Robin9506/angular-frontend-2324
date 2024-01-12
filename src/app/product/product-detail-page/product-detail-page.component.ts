@@ -17,6 +17,8 @@ export class ProductDetailPageComponent {
   isLoggedIn: boolean = false;
   loginObserver: Subscription = new Subscription();
 
+  isLoading: boolean = false;
+
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private productService: ProductService, private cartService: CartService, private authService: AuthService) { }
 
@@ -31,15 +33,16 @@ export class ProductDetailPageComponent {
   getSingleProduct(){
     this.productService.getSingleProduct(this.productId).subscribe({
       next: (product: Product) => {
+        this.isLoading = true;
         this.product = product;
       },
       complete: () => {
+        this.isLoading = false;
       }    
     });
   }
 
   addSingleProductToCart(requestedProduct: Product){
-    console.log(this.isLoggedIn)
     if(!this.isLoggedIn){
       this.router.navigate(['login'])
     }
