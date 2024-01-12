@@ -1,0 +1,15 @@
+@import "../app.component.scss";
+
+/* Header/Logo Title */
+.header {
+    padding: 60px;
+    text-align: center;
+    background: $cta-color;
+    color: $global-color;
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+.bold{
+    font-weight: bold;
+}

@@ -1,4 +1,8 @@
-<div class="single-product-wrapper">
+<div class="page-wrapper" *ngIf="isLoading">
+    <h1>Product is loading!</h1>
+</div>
+
+<div class="single-product-wrapper" *ngIf="!isLoading">
     <breadcrumbs-component [endLocation]="product?.name"></breadcrumbs-component>
     <div class="single-product-main-section display-inline-block">
         <div class="single-product-image display-inline-block">
@@ -48,6 +52,5 @@
                 <dd>{{product?.company}}</dd>
             </dl>
         </div>
-    </div>
-    
+    </div>  
 </div>

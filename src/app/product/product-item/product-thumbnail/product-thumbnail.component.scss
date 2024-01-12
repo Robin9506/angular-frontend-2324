@@ -1,7 +1,9 @@
+@import "../../../app.component.scss";
+
 .product-thumbnail{
     height: 60%;
     width: 100%;
-    background-color: blue;
+    background-color: $global-color;
     position: absolute;
 
 }

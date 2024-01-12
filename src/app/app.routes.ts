@@ -14,10 +14,11 @@ import { AdminPromoAddComponent } from './admin-portal/admin-promo/admin-promo-a
 import { AdminPromoEditComponent } from './admin-portal/admin-promo/admin-promo-edit/admin-promo-edit.component';
 import { ProfileEditComponent } from './customer-portal/profile/profile-edit/profile-edit.component';
 import { AuthGuard } from './validators/admin-guard';
+import { HomeComponent } from './home/home.component';
 
 export const routes: Routes = [
   { path: '', component: ProductsPageComponent},
-  { path: 'home', component: ProductsPageComponent},
+  { path: 'home', component: HomeComponent},
   { path: 'product', component: ProductsPageComponent},
   { path: 'product/:id', component: ProductDetailPageComponent},
   { path: 'checkout', component: CheckoutPageComponent},

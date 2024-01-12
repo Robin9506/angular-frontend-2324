@@ -34,7 +34,6 @@ export class PromoComponent {
       },
       error: (e: Error) => {
           this.currentDiscount = 0;
-          console.log("No Promo")
       },
       complete: () => {
           this.setCode(promoCode);
