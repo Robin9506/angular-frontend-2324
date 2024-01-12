@@ -19,9 +19,9 @@ export class ProductListComponent {
   }
   
   getProducts(){  
+    this.isRetrievingProducts = true;
     this.productService.getProducts().subscribe({
       next: (products: Product[]) => {
-        this.isRetrievingProducts = true;
         this.products = products;
 
       },

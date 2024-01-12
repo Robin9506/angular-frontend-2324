@@ -31,9 +31,9 @@ export class ProductDetailPageComponent {
   }
 
   getSingleProduct(){
+    this.isLoading = true;
     this.productService.getSingleProduct(this.productId).subscribe({
       next: (product: Product) => {
-        this.isLoading = true;
         this.product = product;
       },
       complete: () => {
